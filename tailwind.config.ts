@@ -10,24 +10,6 @@ export default {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
-      colors: {
-        'gray-950': '#0a0a0a',
-        'gray-925': '#0f0f0f',
-        'gray-875': '#1a1a1a',
-        'grayish-blue': {
-          '900': '#0f1419',
-          '800': '#1a202c',
-          '700': '#2d3748',
-        },
-        'accent': {
-          '100': '#b2d8d8',
-          '300': '#66b2b2',
-          '400': '#66b2b2',
-          '500': '#008080',
-          '600': '#006666',
-          '700': '#004c4c',
-        }
-      },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',

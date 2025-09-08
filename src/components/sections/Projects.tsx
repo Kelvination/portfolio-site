@@ -109,7 +109,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-2xl font-semibold text-white flex items-center gap-2">
                         {project.title}
-                        {project.featured && <Star className="text-yellow-400" size={20} />}
+                        {project.featured && <Star className="text-accent-400" size={20} />}
                       </h3>
                     </div>
                     
@@ -186,7 +186,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   <div className="flex items-start justify-between mb-6">
                     <h3 className="text-3xl font-bold text-white flex items-center gap-3">
                       {selectedProject.title}
-                      {selectedProject.featured && <Star className="text-yellow-400" size={24} />}
+                      {selectedProject.featured && <Star className="text-accent-400" size={24} />}
                     </h3>
                     <button
                       onClick={() => setSelectedProject(null)}

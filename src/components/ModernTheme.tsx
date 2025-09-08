@@ -21,10 +21,10 @@ const ModernTheme: React.FC<ModernThemeProps> = ({ data }) => {
         className="absolute inset-0 animate-radial-drift"
         style={{
           background: `
-            radial-gradient(farthest-side at top left, #000000, transparent),
-            radial-gradient(farthest-side at top right, #0f141a, transparent),
-            radial-gradient(farthest-side at bottom left, #000102, transparent),
-            radial-gradient(farthest-side at bottom right, #000000, transparent)
+            radial-gradient(farthest-side at top left, #09090b, transparent),
+            radial-gradient(farthest-side at top right, #004c4c20, transparent),
+            radial-gradient(farthest-side at bottom left, #09090b, transparent),
+            radial-gradient(farthest-side at bottom right, #00808010, transparent)
           `,
           backgroundSize: '300%',
         }}
@@ -35,7 +35,7 @@ const ModernTheme: React.FC<ModernThemeProps> = ({ data }) => {
         className="absolute inset-0 opacity-20 animate-foreground-sweep"
         style={{
           width: '200%',
-          background: 'linear-gradient(to right, transparent, #374151, #374151, #374151, transparent)',
+          background: 'linear-gradient(to right, transparent, #008080, #008080, #008080, transparent)',
         }}
       />
       

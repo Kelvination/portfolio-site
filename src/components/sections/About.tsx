@@ -110,32 +110,34 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
           <motion.div variants={itemVariants} className="space-y-8 px-2">
             <h3 className="text-3xl font-bold text-white mb-8 px-2">My Timeline</h3>
             
-            {timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                transition={{ delay: index * 0.2 }}
-                className="relative"
-              >
-                {/* Timeline line */}
-                {index < timeline.length - 1 && (
-                  <div className="absolute left-8 top-20 w-0.5 h-20 bg-gradient-to-b from-gray-500 to-gray-600" />
-                )}
-                
-                <div className="flex items-start gap-6">
-                  {/* Year bubble */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold text-sm">
-                    {item.year}
-                  </div>
+            <div className="relative">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  transition={{ delay: index * 0.2 }}
+                  className="relative"
+                >
+                  {/* Connecting line */}
+                  {index < timeline.length - 1 && (
+                    <div className="absolute left-8 top-16 w-0.5 h-16 bg-gradient-to-b from-gray-600 to-gray-700 z-0" />
+                  )}
                   
-                  {/* Content */}
-                  <GradientCard gradient="pink" className="flex-1 p-6 md:p-8">
-                    <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                    <p className="text-gray-300 leading-relaxed text-base">{item.description}</p>
-                  </GradientCard>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="flex items-center py-4 gap-6 relative z-10">
+                    {/* Year bubble */}
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold text-sm border-2 border-gray-800">
+                      {item.year}
+                    </div>
+                    
+                    {/* Content */}
+                    <GradientCard gradient="pink" className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
+                      <p className="text-gray-300 leading-relaxed text-base">{item.description}</p>
+                    </GradientCard>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
 

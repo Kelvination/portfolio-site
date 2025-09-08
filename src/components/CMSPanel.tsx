@@ -55,7 +55,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
       {/* CMS Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        className="fixed bottom-4 right-4 z-50 p-3 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-colors"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
@@ -106,7 +106,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
                       activeTab === tab.id
-                        ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
+                        ? 'text-accent-600 border-b-2 border-accent-600 bg-accent-100'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -125,7 +125,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                         type="text"
                         value={data.personalInfo.name}
                         onChange={(e) => updatePersonalInfo('name', e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
                       />
                     </div>
                     <div>
@@ -134,7 +134,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                         type="text"
                         value={data.personalInfo.title}
                         onChange={(e) => updatePersonalInfo('title', e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
                       />
                     </div>
                     <div>
@@ -143,7 +143,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                         value={data.personalInfo.bio}
                         onChange={(e) => updatePersonalInfo('bio', e.target.value)}
                         rows={4}
-                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
                       />
                     </div>
                     <div>
@@ -152,7 +152,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                         type="email"
                         value={data.personalInfo.email}
                         onChange={(e) => updatePersonalInfo('email', e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
                       />
                     </div>
                   </div>
@@ -162,7 +162,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                   <div className="space-y-4">
                     <button
                       onClick={addProject}
-                      className="flex items-center gap-2 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="flex items-center gap-2 w-full px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors"
                     >
                       <Plus size={16} />
                       Add Project
@@ -176,11 +176,11 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                               type="text"
                               value={project.title}
                               onChange={(e) => updateProject(project.id, { title: e.target.value })}
-                              className="flex-1 px-3 py-1 text-lg font-medium bg-transparent border-b border-slate-300 focus:outline-none focus:border-blue-500"
+                              className="flex-1 px-3 py-1 text-lg font-medium bg-transparent border-b border-slate-300 focus:outline-none focus:border-accent-500"
                             />
                             <button
                               onClick={() => deleteProject(project.id)}
-                              className="p-1 text-red-500 hover:text-red-700"
+                              className="p-1 text-gray-500 hover:text-gray-700"
                             >
                               <Trash2 size={16} />
                             </button>
@@ -191,7 +191,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                             onChange={(e) => updateProject(project.id, { description: e.target.value })}
                             placeholder="Description"
                             rows={3}
-                            className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-accent-500"
                           />
                           
                           <input
@@ -199,7 +199,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                             value={project.technologies.join(', ')}
                             onChange={(e) => updateProject(project.id, { technologies: e.target.value.split(',').map(s => s.trim()).filter(Boolean) })}
                             placeholder="Technologies (comma separated)"
-                            className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-accent-500"
                           />
                           
                           <div className="flex gap-2">
@@ -215,7 +215,7 @@ const CMSPanel: React.FC<CMSPanelProps> = ({ data, onDataUpdate }) => {
                                 type="checkbox"
                                 checked={project.featured}
                                 onChange={(e) => updateProject(project.id, { featured: e.target.checked })}
-                                className="w-4 h-4 text-blue-600"
+                                className="w-4 h-4 text-accent-600"
                               />
                               <span className="text-sm">Featured</span>
                             </label>
