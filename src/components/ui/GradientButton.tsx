@@ -23,9 +23,9 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   const baseClasses = "relative overflow-hidden font-medium transition-all duration-300 rounded-lg flex items-center gap-2 justify-center";
   
   const variants = {
-    primary: "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg hover:shadow-xl",
-    secondary: "bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-lg hover:shadow-xl",
-    outline: "border-transparent bg-gradient-to-r from-purple-500 to-pink-500 p-[2px] hover:shadow-lg"
+    primary: "bg-gradient-to-r from-accent-500 to-accent-600 text-white hover:from-accent-600 hover:to-accent-700 shadow-lg hover:shadow-xl",
+    secondary: "bg-gradient-to-r from-gray-700 to-gray-600 text-white hover:from-gray-600 hover:to-gray-500 shadow-lg hover:shadow-xl",
+    outline: "border-transparent bg-gradient-to-r from-gray-600 to-gray-700 p-[2px] hover:shadow-lg"
   };
   
   const sizes = {
@@ -35,14 +35,14 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   };
   
   const outlineInner = variant === 'outline' 
-    ? "bg-slate-900 text-white hover:bg-transparent transition-all duration-300 rounded-md flex items-center gap-2 justify-center w-full h-full"
+    ? "bg-gray-950 text-white hover:bg-transparent transition-all duration-300 rounded-md flex items-center gap-2 justify-center w-full h-full"
     : "";
 
   const buttonContent = (
     <>
       {/* Shimmer effect */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
         animate={{
           translateX: ['100%', '-100%']
         }}

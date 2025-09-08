@@ -69,11 +69,11 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
           <motion.div variants={itemVariants} className="space-y-8">
             <GradientCard gradient="purple" className="p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 I'm always excited to discuss new opportunities, collaborate on interesting projects, 
                 or simply chat about technology and development.
               </p>
@@ -91,14 +91,14 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
               {/* Contact Methods */}
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-purple-500/20">
-                    <Mail className="w-6 h-6 text-purple-300" />
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-gray-700/30 to-gray-600/30">
+                    <Mail className="w-6 h-6 text-gray-400" />
                   </div>
                   <div>
                     <div className="text-white font-medium">Email</div>
                     <a 
                       href={`mailto:${personalInfo.email}`}
-                      className="text-purple-300 hover:text-purple-200 transition-colors"
+                      className="text-gray-300 hover:text-gray-200 transition-colors"
                     >
                       {personalInfo.email}
                     </a>
@@ -106,48 +106,48 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-purple-500/20">
-                    <MapPin className="w-6 h-6 text-purple-300" />
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-gray-700/30 to-gray-600/30">
+                    <MapPin className="w-6 h-6 text-gray-400" />
                   </div>
                   <div>
                     <div className="text-white font-medium">Location</div>
-                    <div className="text-slate-300">{personalInfo.location}</div>
+                    <div className="text-gray-300">{personalInfo.location}</div>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-white/10">
+              <div className="pt-8 border-t border-gray-600/20">
                 <h4 className="text-white font-medium mb-4">Follow Me</h4>
                 <div className="flex gap-4">
                   {personalInfo.github && (
                     <motion.a
                       href={personalInfo.github}
-                      className="p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 text-white group"
+                      className="p-3 rounded-lg bg-gray-800/30 hover:bg-gray-700/40 transition-all duration-300 text-white group"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Github className="w-5 h-5 group-hover:text-purple-300 transition-colors" />
+                      <Github className="w-5 h-5 group-hover:text-gray-300 transition-colors" />
                     </motion.a>
                   )}
                   {personalInfo.linkedin && (
                     <motion.a
                       href={personalInfo.linkedin}
-                      className="p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 text-white group"
+                      className="p-3 rounded-lg bg-gray-800/30 hover:bg-gray-700/40 transition-all duration-300 text-white group"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Linkedin className="w-5 h-5 group-hover:text-purple-300 transition-colors" />
+                      <Linkedin className="w-5 h-5 group-hover:text-gray-300 transition-colors" />
                     </motion.a>
                   )}
                   {personalInfo.website && (
                     <motion.a
                       href={personalInfo.website}
-                      className="p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 text-white group"
+                      className="p-3 rounded-lg bg-gray-800/30 hover:bg-gray-700/40 transition-all duration-300 text-white group"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <ExternalLink className="w-5 h-5 group-hover:text-purple-300 transition-colors" />
+                      <ExternalLink className="w-5 h-5 group-hover:text-gray-300 transition-colors" />
                     </motion.a>
                   )}
                 </div>
@@ -163,7 +163,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Name *
                     </label>
                     <input
@@ -172,13 +172,13 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-900/30 border border-gray-600/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300"
                       placeholder="Your name"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -187,7 +187,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-900/30 border border-gray-600/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -218,7 +218,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-gray-900/30 border border-gray-600/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300 resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -227,7 +227,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-500 hover:from-purple-600 hover:to-purple-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
                   >
                     <Send size={20} />
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -240,8 +240,8 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
 
         {/* Footer */}
         <motion.div variants={itemVariants} className="mt-16 text-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8" />
-          <p className="text-slate-400">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-600/30 to-transparent mb-8" />
+          <p className="text-gray-400">
             © 2024 {personalInfo.name}. Built with React, TypeScript, and lots of ☕
           </p>
         </motion.div>

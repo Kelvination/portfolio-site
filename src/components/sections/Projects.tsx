@@ -47,11 +47,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             A collection of projects that showcase my skills and passion for creating innovative solutions
           </p>
           
@@ -61,8 +61,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               onClick={() => setFilter('all')}
               className={`px-6 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${
                 filter === 'all'
-                  ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white'
-                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                  ? 'bg-gradient-to-r from-gray-600 to-gray-700 text-white'
+                  : 'bg-gray-800/30 text-gray-300 hover:bg-gray-700/40'
               }`}
             >
               <Filter size={16} />
@@ -72,8 +72,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               onClick={() => setFilter('featured')}
               className={`px-6 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${
                 filter === 'featured'
-                  ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white'
-                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                  ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white'
+                  : 'bg-gray-800/30 text-gray-300 hover:bg-gray-700/40'
               }`}
             >
               <Star size={16} />
@@ -114,7 +114,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </div>
                     
                     {/* Description */}
-                    <p className="text-slate-300 mb-6 flex-grow leading-relaxed">
+                    <p className="text-gray-300 mb-6 flex-grow leading-relaxed">
                       {project.description}
                     </p>
                     
@@ -123,13 +123,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       {project.technologies.slice(0, 4).map((tech) => (
                         <span 
                           key={tech}
-                          className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-200 rounded-full border border-purple-400/30"
+                          className="px-3 py-1 text-sm bg-gradient-to-r from-gray-700/40 to-gray-600/40 text-gray-200 rounded-full border border-gray-500/30"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 4 && (
-                        <span className="px-3 py-1 text-sm bg-white/10 text-slate-300 rounded-full">
+                        <span className="px-3 py-1 text-sm bg-gray-800/30 text-gray-300 rounded-full">
                           +{project.technologies.length - 4} more
                         </span>
                       )}
@@ -196,7 +196,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </button>
                   </div>
                   
-                  <p className="text-slate-300 text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">
                     {selectedProject.longDescription || selectedProject.description}
                   </p>
                   
@@ -204,7 +204,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     {selectedProject.technologies.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-200 rounded-full border border-purple-400/30"
+                        className="px-4 py-2 bg-gradient-to-r from-gray-700/40 to-gray-600/40 text-gray-200 rounded-full border border-gray-500/30"
                       >
                         {tech}
                       </span>

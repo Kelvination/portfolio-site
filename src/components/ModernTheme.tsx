@@ -15,12 +15,32 @@ const ModernTheme: React.FC<ModernThemeProps> = ({ data }) => {
   const { personalInfo, projects, experience, skills } = data;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 bg-[length:400%_400%]" />
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Main radial gradient background with corner animations */}
+      <div 
+        className="absolute inset-0 animate-radial-drift"
+        style={{
+          background: `
+            radial-gradient(farthest-side at top left, #000000, transparent),
+            radial-gradient(farthest-side at top right, #0f141a, transparent),
+            radial-gradient(farthest-side at bottom left, #000102, transparent),
+            radial-gradient(farthest-side at bottom right, #000000, transparent)
+          `,
+          backgroundSize: '300%',
+        }}
+      />
       
-      {/* Glass morphism overlay */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/20" />
+      {/* Animated foreground gradient sweep */}
+      <div 
+        className="absolute inset-0 opacity-20 animate-foreground-sweep"
+        style={{
+          width: '200%',
+          background: 'linear-gradient(to right, transparent, #374151, #374151, #374151, transparent)',
+        }}
+      />
+      
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-black/10" />
       
       {/* Content Sections */}
       <div className="relative z-10">

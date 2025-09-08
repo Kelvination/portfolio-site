@@ -65,11 +65,11 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16 px-4">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-accent-400 to-accent-500 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -77,10 +77,10 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
           <motion.div variants={itemVariants} className="space-y-8">
             <GradientCard gradient="purple" className="p-8 md:p-10">
               <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 {personalInfo.bio}
               </p>
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <p className="text-gray-300 text-lg leading-relaxed">
                 I'm passionate about creating digital experiences that not only look beautiful but also solve real-world problems. 
                 My journey in software engineering has been driven by curiosity and a constant desire to learn and grow.
               </p>
@@ -96,9 +96,9 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <GradientCard gradient="blue" className="p-6 md:p-8 text-center">
-                      <stat.icon className="w-8 h-8 text-blue-400 mx-auto mb-4" />
+                      <stat.icon className="w-8 h-8 text-gray-400 mx-auto mb-4" />
                       <div className="text-3xl font-bold text-white mb-3">{stat.value}</div>
-                      <div className="text-sm text-slate-300 leading-relaxed">{stat.label}</div>
+                      <div className="text-sm text-gray-300 leading-relaxed">{stat.label}</div>
                     </GradientCard>
                   </motion.div>
                 ))}
@@ -119,19 +119,19 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
               >
                 {/* Timeline line */}
                 {index < timeline.length - 1 && (
-                  <div className="absolute left-8 top-20 w-0.5 h-20 bg-gradient-to-b from-purple-500 to-purple-600" />
+                  <div className="absolute left-8 top-20 w-0.5 h-20 bg-gradient-to-b from-gray-500 to-gray-600" />
                 )}
                 
                 <div className="flex items-start gap-6">
                   {/* Year bubble */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold text-sm">
                     {item.year}
                   </div>
                   
                   {/* Content */}
                   <GradientCard gradient="pink" className="flex-1 p-6 md:p-8">
                     <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                    <p className="text-slate-300 leading-relaxed text-base">{item.description}</p>
+                    <p className="text-gray-300 leading-relaxed text-base">{item.description}</p>
                   </GradientCard>
                 </div>
               </motion.div>
@@ -146,7 +146,7 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         >
           <GradientCard gradient="cyan" className="inline-block p-6 md:p-8">
             <div className="flex items-center gap-4 text-white">
-              <MapPin className="w-6 h-6 text-cyan-400" />
+              <MapPin className="w-6 h-6 text-gray-400" />
               <span className="text-lg">Currently based in {personalInfo.location}</span>
             </div>
           </GradientCard>

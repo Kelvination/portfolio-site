@@ -41,11 +41,11 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
-          <p className="text-xl text-blue-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             My professional journey and the experiences that shaped my expertise
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-purple-500 to-blue-500 transform md:-tranblue-x-px" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-500 via-gray-600 to-gray-700 transform md:-translate-x-px" />
 
           {experience.map((exp, index) => (
             <motion.div
@@ -65,8 +65,8 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
               }`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-500 rounded-full transform -tranblue-x-2 md:-tranblue-x-2 z-10 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-500 rounded-full animate-ping opacity-20" />
+              <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full transform -translate-x-2 md:-translate-x-2 z-10 shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full animate-ping opacity-20" />
               </div>
 
               {/* Content */}
@@ -79,19 +79,19 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
                 >
                   {/* Company Badge */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-lg bg-white/10">
+                    <div className="p-2 rounded-lg bg-gray-800/30">
                       <Briefcase className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
-                      <div className="text-lg font-medium bg-gradient-to-r from-purple-400 to-purple-400 bg-clip-text text-transparent">
+                      <div className="text-lg font-medium bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
                         {exp.company}
                       </div>
                     </div>
                   </div>
 
                   {/* Meta Info */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-blue-300 mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-400 mb-6">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">
@@ -105,7 +105,7 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-blue-300 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6">
                     {exp.description}
                   </p>
 
@@ -121,8 +121,8 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
                           key={tech}
                           className={`px-3 py-1 text-sm rounded-full border ${
                             index % 2 === 0 
-                              ? 'bg-purple-500/20 text-purple-200 border-purple-400/30'
-                              : 'bg-blue-500/20 text-blue-200 border-blue-400/30'
+                              ? 'bg-gray-700/30 text-gray-200 border-gray-500/30'
+                              : 'bg-gray-800/30 text-gray-300 border-gray-600/30'
                           }`}
                         >
                           {tech}
@@ -143,13 +143,13 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         <motion.div variants={itemVariants} className="text-center mt-16">
           <GradientCard gradient="blue" className="inline-block p-8">
             <h3 className="text-2xl font-bold text-white mb-4">Let's Work Together</h3>
-            <p className="text-blue-300 mb-6 max-w-lg">
+            <p className="text-gray-300 mb-6 max-w-lg">
               I'm always interested in new opportunities and exciting projects. 
               Let's discuss how we can create something amazing together.
             </p>
             <motion.a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-600 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-lg font-medium hover:from-accent-600 hover:to-accent-700 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
