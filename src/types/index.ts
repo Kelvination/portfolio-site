@@ -3,9 +3,12 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
+  modalContent?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  websiteUrl?: string;
+  steamUrl?: string;
   imageUrl?: string;
   featured: boolean;
 }

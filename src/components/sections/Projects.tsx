@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Star, Filter } from 'lucide-react';
+import { Github, ExternalLink, Star, Filter, Globe, Gamepad2 } from 'lucide-react';
 import type { Project } from '../../types';
 import GradientCard from '../ui/GradientCard';
 import GradientButton from '../ui/GradientButton';
@@ -59,7 +59,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <div className="flex justify-center gap-4">
             <button
               onClick={() => setFilter('all')}
-              className={`px-6 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${
+              className={`px-6 py-2 rounded-full cursor-pointer transition-all duration-300 flex items-center gap-2 ${
                 filter === 'all'
                   ? 'bg-gradient-to-r from-gray-600 to-gray-700 text-white'
                   : 'bg-gray-800/30 text-gray-300 hover:bg-gray-700/40'
@@ -70,7 +70,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             </button>
             <button
               onClick={() => setFilter('featured')}
-              className={`px-6 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${
+              className={`px-6 py-2 rounded-full cursor-pointer transition-all duration-300 flex items-center gap-2 ${
                 filter === 'featured'
                   ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white'
                   : 'bg-gray-800/30 text-gray-300 hover:bg-gray-700/40'
@@ -136,7 +136,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </div>
                     
                     {/* Actions */}
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
                       {project.githubUrl && (
                         <GradientButton 
                           size="sm" 
@@ -154,6 +154,26 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                           icon={<ExternalLink size={16} />}
                         >
                           Live Demo
+                        </GradientButton>
+                      )}
+                      {project.websiteUrl && (
+                        <GradientButton 
+                          size="sm"
+                          variant="outline"
+                          href={project.websiteUrl}
+                          icon={<Globe size={16} />}
+                        >
+                          Website
+                        </GradientButton>
+                      )}
+                      {project.steamUrl && (
+                        <GradientButton 
+                          size="sm"
+                          variant="outline"
+                          href={project.steamUrl}
+                          icon={<Gamepad2 size={16} />}
+                        >
+                          Steam
                         </GradientButton>
                       )}
                     </div>
@@ -196,9 +216,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </button>
                   </div>
                   
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                    {selectedProject.longDescription || selectedProject.description}
-                  </p>
+                  <div className="text-gray-300 text-lg mb-6 leading-relaxed whitespace-pre-wrap">
+                    {selectedProject.modalContent || selectedProject.longDescription || selectedProject.description}
+                  </div>
                   
                   <div className="flex flex-wrap gap-2 mb-8">
                     {selectedProject.technologies.map((tech) => (
@@ -211,7 +231,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     ))}
                   </div>
                   
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-3">
                     {selectedProject.githubUrl && (
                       <GradientButton 
                         href={selectedProject.githubUrl}
@@ -227,6 +247,24 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                         icon={<ExternalLink size={20} />}
                       >
                         Live Demo
+                      </GradientButton>
+                    )}
+                    {selectedProject.websiteUrl && (
+                      <GradientButton 
+                        variant="secondary"
+                        href={selectedProject.websiteUrl}
+                        icon={<Globe size={20} />}
+                      >
+                        Website
+                      </GradientButton>
+                    )}
+                    {selectedProject.steamUrl && (
+                      <GradientButton 
+                        variant="secondary"
+                        href={selectedProject.steamUrl}
+                        icon={<Gamepad2 size={20} />}
+                      >
+                        Steam
                       </GradientButton>
                     )}
                   </div>

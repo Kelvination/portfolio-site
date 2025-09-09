@@ -20,7 +20,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   className = '',
   icon
 }) => {
-  const baseClasses = "relative overflow-hidden font-medium transition-all duration-300 rounded-lg flex items-center gap-2 justify-center";
+  const baseClasses = "relative cursor-pointer overflow-hidden font-medium transition-all duration-300 rounded-lg flex items-center gap-2 justify-center";
   
   const variants = {
     primary: "bg-gradient-to-r from-accent-500 to-accent-600 text-white hover:from-accent-600 hover:to-accent-700 shadow-lg hover:shadow-xl",
@@ -63,7 +63,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   );
 
   const Component = href ? motion.a : motion.button;
-  const props = href ? { href } : { onClick };
+  const props = href ? { href, target: "_blank", rel: "noopener noreferrer" } : { onClick };
 
   if (variant === 'outline') {
     return (

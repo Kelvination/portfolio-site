@@ -118,15 +118,14 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
                   transition={{ delay: index * 0.2 }}
                   className="relative"
                 >
-                  {/* Connecting line */}
-                  {index < timeline.length - 1 && (
-                    <div className="absolute left-8 top-16 w-0.5 h-16 bg-gradient-to-b from-gray-600 to-gray-700 z-0" />
-                  )}
-                  
-                  <div className="flex items-center py-4 gap-6 relative z-10">
+                  <div className="flex items-center py-4 gap-6 relative">
                     {/* Year bubble */}
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold text-sm border-2 border-gray-800">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold text-sm border-2 border-gray-800 relative z-10">
                       {item.year}
+                      {/* Connecting line extending from bottom of bubble */}
+                      {index < timeline.length - 1 && (
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-1 rounded-b-lg h-16 bg-gradient-to-b from-gray-600 to-gray-700" />
+                      )}
                     </div>
                     
                     {/* Content */}
