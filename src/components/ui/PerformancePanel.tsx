@@ -1,15 +1,6 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { Eye, EyeOff, Gauge, Settings, Wifi, Zap } from "lucide-react";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Settings,
-  Zap,
-  Eye,
-  EyeOff,
-  Gauge,
-  Wifi,
-  Wind,
-  Sparkles,
-} from "lucide-react";
 import { usePerformance } from "../../contexts/PerformanceContext";
 import GradientCard from "./GradientCard";
 
@@ -19,8 +10,6 @@ const PerformancePanel: React.FC = () => {
     settings,
     toggleBackgroundAnimations,
     toggleFramerAnimations,
-    toggleCloudDrift,
-    togglePulseGlow,
     applyPerformanceMode,
   } = usePerformance();
 
@@ -141,69 +130,6 @@ const PerformancePanel: React.FC = () => {
                       />
                     </button>
                   </div>
-
-                  {/* Individual Background Animation Controls */}
-                  {settings.backgroundAnimations && (
-                    <div className="space-y-3 rounded-lg border border-gray-700/50 bg-gray-900/30 p-4">
-                      <h4 className="text-sm font-medium text-white">
-                        Individual Animation Controls
-                      </h4>
-
-                      {/* Cloud Drift */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Wind
-                            className={`h-3 w-3 ${settings.cloudDrift ? "text-accent-400" : "text-gray-500"}`}
-                          />
-                          <span className="text-sm text-gray-300">
-                            Cloud Drift (42s)
-                          </span>
-                        </div>
-                        <button
-                          onClick={toggleCloudDrift}
-                          className={`h-5 w-9 rounded-full transition-colors ${
-                            settings.cloudDrift
-                              ? "bg-accent-500"
-                              : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`h-3 w-3 rounded-full bg-white transition-transform ${
-                              settings.cloudDrift
-                                ? "translate-x-5"
-                                : "translate-x-1"
-                            }`}
-                          />
-                        </button>
-                      </div>
-
-                      {/* Pulse Glow */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Sparkles
-                            className={`h-3 w-3 ${settings.pulseGlow ? "text-accent-400" : "text-gray-500"}`}
-                          />
-                          <span className="text-sm text-gray-300">
-                            Pulse Glow (12s)
-                          </span>
-                        </div>
-                        <button
-                          onClick={togglePulseGlow}
-                          className={`h-5 w-9 rounded-full transition-colors ${
-                            settings.pulseGlow ? "bg-accent-500" : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`h-3 w-3 rounded-full bg-white transition-transform ${
-                              settings.pulseGlow
-                                ? "translate-x-5"
-                                : "translate-x-1"
-                            }`}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  )}
 
                   {/* Performance Mode Button */}
                   <button
