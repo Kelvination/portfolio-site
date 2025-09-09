@@ -12,7 +12,7 @@ export const formatPortfolioData = (data: PortfolioData): string => {
   };
 
   // Recursively format the data with proper escaping
-  const formatValue = (value: any, indent: string = ''): string => {
+  const formatValue = (value: unknown, indent: string = ''): string => {
     if (value === null) return 'null';
     if (value === undefined) return 'undefined';
     if (typeof value === 'boolean') return value.toString();
@@ -65,7 +65,7 @@ export const savePortfolioData = async (data: PortfolioData): Promise<boolean> =
       if (response.ok) {
         return true;
       }
-    } catch (fetchError) {
+    } catch {
       console.log('Save server not running, falling back to clipboard');
     }
     

@@ -4,8 +4,8 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: 'Kelvin Newton',
     title: 'Agentic Software Engineer',
-    bio: 'Passionate software engineer with expertise in modern web technologies. I love building scalable applications and solving complex problems with clean, efficient code.',
-    location: 'United States',
+    bio: 'Experienced software engineer specializing in agentic development. I don\'t vibe code — I use agentic tools to enhance my delivery of clean solutions that solve real problems and create products people love.',
+    location: 'Georgetown, KY',
     email: 'kelvin.a.newton@gmail.com',
     github: 'https://github.com/Kelvination',
     linkedin: 'https://linkedin.com/in/kelvin-newton'
@@ -15,7 +15,7 @@ export const portfolioData: PortfolioData = {
       id: '1',
       title: 'ChatFight!',
       description: 'A RNG-Based Battle Royale Game for Twitch Chat.',
-      longDescription: 'ChatFight is my first official game that I released on Steam. It is a game for Twitch streamers, to help them interact with their chat. The idea comes from a game called Marbles On Stream, in which viewers in chat get to put their name on a marble and hope that their marble reaches the finish line first. The game is a Battle Royale, but for stream viewers. The viewers can customize their characters using the website https://www.chatfight.win by linking their Twitch account and equipping items. There is also a store on the website where viewers can buy different items for their characters, as well as equipping gloves and boots.I also plan to add more features to interact with the world and the players and increase the excitement and make it funnier to watch.',
+      longDescription: 'ChatFight is my first official game that I released on Steam. It is a game for Twitch streamers, to help them interact with their chat. The idea comes from a game called Marbles On Stream, in which viewers in chat get to put their name on a marble and hope that their marble reaches the finish line first. \n\nThe game is a Battle Royale, but for stream viewers. The viewers can customize their characters using the website by linking their Twitch account and equipping items. \n\nThere is also a store on the website where viewers can buy different items for their characters, as well as equipping gloves and boots. This game is still running and people are playing it daily, with over 200k total players since its launch.',
       technologies: [
         'Vue.js',
         'Node.js',
@@ -101,7 +101,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: '2',
-      name: 'TypeScript',
+      name: 'Javascript / TypeScript',
       category: 'frontend',
       level: 'expert'
     },
@@ -122,6 +122,60 @@ export const portfolioData: PortfolioData = {
       name: 'AWS',
       category: 'tools',
       level: 'intermediate'
+    },
+    {
+      id: '1757423207663',
+      name: 'Microservice Architecture',
+      category: 'backend',
+      level: 'advanced'
+    },
+    {
+      id: '1757423221182',
+      name: 'Vue',
+      category: 'frontend',
+      level: 'advanced'
+    },
+    {
+      id: '1757423251483',
+      name: 'SQL',
+      category: 'database',
+      level: 'advanced'
+    },
+    {
+      id: '1757423270981',
+      name: 'MongoDB / DocDB',
+      category: 'database',
+      level: 'beginner'
+    },
+    {
+      id: '1757423281998',
+      name: 'Claude Code',
+      category: 'tools',
+      level: 'expert'
+    },
+    {
+      id: '1757423289402',
+      name: 'Github Copilot',
+      category: 'tools',
+      level: 'expert'
+    },
+    {
+      id: '1757423289663',
+      name: 'Cursor',
+      category: 'frontend',
+      level: 'advanced'
+    },
+    {
+      id: '1757423289890',
+      name: 'Prompt Engineering',
+      category: 'other',
+      level: 'advanced'
+    },
+    {
+      id: '1757423361169',
+      name: 'Context Engineering',
+      category: 'other',
+      level: 'advanced'
     }
   ]
 };

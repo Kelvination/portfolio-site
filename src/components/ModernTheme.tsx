@@ -6,6 +6,7 @@ import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import ExperienceSection from './sections/Experience';
 import Contact from './sections/Contact';
+import { backgroundGradients } from '../constants/gradients';
 
 interface ModernThemeProps {
   data: PortfolioData;
@@ -16,28 +17,51 @@ const ModernTheme: React.FC<ModernThemeProps> = ({ data }) => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Main radial gradient background with corner animations */}
+      {/* Layer 1: Main radial gradient background */}
       <div 
         className="absolute inset-0 animate-radial-drift"
         style={{
-          background: `
-            radial-gradient(farthest-side at top left, #09090b, transparent),
-            radial-gradient(farthest-side at top right, #004c4c20, transparent),
-            radial-gradient(farthest-side at bottom left, #09090b, transparent),
-            radial-gradient(farthest-side at bottom right, #00808010, transparent)
-          `,
+          background: backgroundGradients.radialMain,
           backgroundSize: '300%',
         }}
       />
       
-      {/* Animated foreground gradient sweep */}
+      {/* Layer 1.5: Slow cloud drift overlay */}
       <div 
-        className="absolute inset-0 opacity-20 animate-foreground-sweep"
+        className="absolute inset-0 animate-cloud-drift"
         style={{
-          width: '200%',
-          background: 'linear-gradient(to right, transparent, #008080, #008080, #008080, transparent)',
+          background: backgroundGradients.cloudDrift,
+          backgroundSize: '250%',
         }}
       />
+      
+      {/* Layer 2: Orbital motion gradients */}
+      <div 
+        className="absolute inset-0 animate-orbital-motion"
+        style={{
+          background: backgroundGradients.orbitalLayer,
+          backgroundSize: '400%',
+        }}
+      />
+      
+      {/* Layer 3: Shifting diagonal gradients */}
+      <div 
+        className="absolute inset-0 animate-gradient-shift"
+        style={{
+          background: backgroundGradients.shiftingLayer,
+          backgroundSize: '200%',
+        }}
+      />
+      
+      {/* Layer 4: Pulsing center glow */}
+      <div 
+        className="absolute inset-0 animate-pulse-glow"
+        style={{
+          background: backgroundGradients.pulseLayer,
+          backgroundSize: '150%',
+        }}
+      />
+      
       
       {/* Subtle overlay for depth */}
       <div className="absolute inset-0 bg-black/10" />

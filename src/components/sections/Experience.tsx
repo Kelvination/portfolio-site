@@ -3,31 +3,16 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Briefcase, ChevronRight } from 'lucide-react';
 import type { Experience } from '../../types';
 import GradientCard from '../ui/GradientCard';
+import SectionHeader from '../ui/SectionHeader';
+import TechTag from '../ui/TechTag';
+import { containerVariants, itemVariants } from '../../utils/animations';
+import { formatDateRange } from '../../utils/formatters';
 
 interface ExperienceProps {
   experience: Experience[];
 }
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        duration: 0.8
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 }
-    }
-  };
 
   return (
     <section id="experience" className="py-20 px-6 relative">
@@ -38,17 +23,10 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
-              Experience
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            My professional journey and the experiences that shaped my expertise
-          </p>
-        </motion.div>
+        <SectionHeader 
+          title="Experience"
+          subtitle="My professional journey and the experiences that shaped my expertise"
+        />
 
         {/* Experience Timeline */}
         <div className="relative">
@@ -95,7 +73,7 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">
-                        {exp.startDate} - {exp.endDate || 'Present'}
+                        {formatDateRange(exp.startDate, exp.endDate)}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -117,16 +95,11 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
-                        <span 
+                        <TechTag 
                           key={tech}
-                          className={`px-3 py-1 text-sm rounded-full border ${
-                            index % 2 === 0 
-                              ? 'bg-gray-700/30 text-gray-200 border-gray-500/30'
-                              : 'bg-gray-800/30 text-gray-300 border-gray-600/30'
-                          }`}
-                        >
-                          {tech}
-                        </span>
+                          tech={tech}
+                          variant={index % 2 === 0 ? 'skill' : 'outlined'}
+                        />
                       ))}
                     </div>
                   </div>

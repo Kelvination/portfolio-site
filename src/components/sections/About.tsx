@@ -3,31 +3,14 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, Award } from 'lucide-react';
 import type { PersonalInfo } from '../../types';
 import GradientCard from '../ui/GradientCard';
+import SectionHeader from '../ui/SectionHeader';
+import { containerVariants, itemVariants } from '../../utils/animations';
 
 interface AboutProps {
   personalInfo: PersonalInfo;
 }
 
 const About: React.FC<AboutProps> = ({ personalInfo }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        duration: 0.8
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 }
-    }
-  };
 
   const stats = [
     { label: "Years Experience", value: "3+", icon: Calendar },
@@ -62,13 +45,8 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16 px-4">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
-              About Me
-            </span>
-          </h2>
+        <SectionHeader title="About Me" className="px-4" />
+        <motion.div variants={itemVariants} className="text-center mb-16">
           <div className="w-24 h-1 bg-gradient-to-r from-accent-400 to-accent-500 mx-auto rounded-full" />
         </motion.div>
 

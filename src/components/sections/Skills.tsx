@@ -3,32 +3,16 @@ import { motion } from 'framer-motion';
 import { Code, Database, Server, Wrench } from 'lucide-react';
 import type { Skill } from '../../types';
 import GradientCard from '../ui/GradientCard';
+import SectionHeader from '../ui/SectionHeader';
+import { containerVariants, itemVariants, slideFromLeftVariants } from '../../utils/animations';
+import { getSkillLevelPercentage } from '../../utils/formatters';
+import { skillLevelGradients } from '../../constants/gradients';
 
 interface SkillsProps {
   skills: Skill[];
 }
 
 const Skills: React.FC<SkillsProps> = ({ skills }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        duration: 0.8
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 }
-    }
-  };
-
   const skillCategories = [
     {
       category: 'frontend',
@@ -60,24 +44,8 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
     }
   ];
 
-  const getLevelPercentage = (level: string) => {
-    switch (level) {
-      case 'beginner': return 25;
-      case 'intermediate': return 50;
-      case 'advanced': return 75;
-      case 'expert': return 100;
-      default: return 50;
-    }
-  };
-
   const getLevelColor = (level: string) => {
-    switch (level) {
-      case 'beginner': return 'from-gray-500 to-gray-400';
-      case 'intermediate': return 'from-gray-400 to-gray-300';
-      case 'advanced': return 'from-gray-300 to-gray-200';
-      case 'expert': return 'from-accent-400 to-accent-500';
-      default: return 'from-gray-400 to-gray-500';
-    }
+    return skillLevelGradients[level as keyof typeof skillLevelGradients] || skillLevelGradients.intermediate;
   };
 
   return (
@@ -89,17 +57,10 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
-              Skills & Expertise
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Technologies and tools I use to bring ideas to life
-          </p>
-        </motion.div>
+        <SectionHeader 
+          title="Skills & Expertise"
+          subtitle="Technologies and tools I use to bring ideas to life"
+        />
 
         {/* Skills Categories */}
         <div className="grid lg:grid-cols-2 gap-8">
@@ -135,8 +96,9 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                     {categorySkills.map((skill, index) => (
                       <motion.div
                         key={skill.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        variants={slideFromLeftVariants}
+                        initial="hidden"
+                        whileInView="visible"
                         transition={{ delay: (categoryIndex * 0.2) + (index * 0.1) }}
                         viewport={{ once: true }}
                       >
@@ -157,7 +119,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                           <motion.div
                             className={`absolute left-0 top-0 h-full bg-gradient-to-r ${getLevelColor(skill.level)} rounded-full`}
                             initial={{ width: 0 }}
-                            whileInView={{ width: `${getLevelPercentage(skill.level)}%` }}
+                            whileInView={{ width: `${getSkillLevelPercentage(skill.level)}%` }}
                             transition={{ duration: 1, delay: (categoryIndex * 0.2) + (index * 0.1) + 0.5 }}
                             viewport={{ once: true }}
                           />

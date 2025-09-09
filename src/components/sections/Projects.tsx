@@ -4,6 +4,9 @@ import { Github, ExternalLink, Star, Filter, Globe, Gamepad2 } from 'lucide-reac
 import type { Project } from '../../types';
 import GradientCard from '../ui/GradientCard';
 import GradientButton from '../ui/GradientButton';
+import SectionHeader from '../ui/SectionHeader';
+import TechTag from '../ui/TechTag';
+import { containerVariants, itemVariants, projectItemVariants } from '../../utils/animations';
 
 interface ProjectsProps {
   projects: Project[];
@@ -12,26 +15,6 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [filter, setFilter] = useState<'all' | 'featured'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        duration: 0.8
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 }
-    }
-  };
 
   const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.featured);
 
@@ -44,16 +27,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            A collection of projects that showcase my skills and passion for creating innovative solutions
-          </p>
+        <SectionHeader 
+          title="Featured Projects"
+          subtitle="A collection of projects that showcase my skills and passion for creating innovative solutions"
+        />
+        
+        <motion.div variants={itemVariants} className="mb-16">
           
           {/* Filter Buttons */}
           <div className="flex justify-center gap-4">
@@ -91,11 +70,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                variants={itemVariants}
+                variants={projectItemVariants}
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
                 className="cursor-pointer"
@@ -121,17 +100,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.slice(0, 4).map((tech) => (
-                        <span 
-                          key={tech}
-                          className="px-3 py-1 text-sm bg-gradient-to-r from-gray-700/40 to-gray-600/40 text-gray-200 rounded-full border border-gray-500/30"
-                        >
-                          {tech}
-                        </span>
+                        <TechTag key={tech} tech={tech} />
                       ))}
                       {project.technologies.length > 4 && (
-                        <span className="px-3 py-1 text-sm bg-gray-800/30 text-gray-300 rounded-full">
-                          +{project.technologies.length - 4} more
-                        </span>
+                        <TechTag 
+                          tech={`+${project.technologies.length - 4} more`}
+                          variant="outlined"
+                        />
                       )}
                     </div>
                     
@@ -191,7 +166,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-8"
               onClick={() => setSelectedProject(null)}
             >
               <motion.div
@@ -199,74 +174,71 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: 50 }}
                 transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                className="max-w-4xl w-full max-h-[90vh] overflow-auto"
+                className="max-w-4xl w-full max-h-[85vh] overflow-visible"
                 onClick={(e) => e.stopPropagation()}
               >
-                <GradientCard gradient="purple" className="p-8">
-                  <div className="flex items-start justify-between mb-6">
-                    <h3 className="text-3xl font-bold text-white flex items-center gap-3">
-                      {selectedProject.title}
-                      {selectedProject.featured && <Star className="text-accent-400" size={24} />}
-                    </h3>
-                    <button
-                      onClick={() => setSelectedProject(null)}
-                      className="text-white/60 hover:text-white text-2xl"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  
-                  <div className="text-gray-300 text-lg mb-6 leading-relaxed whitespace-pre-wrap">
-                    {selectedProject.modalContent || selectedProject.longDescription || selectedProject.description}
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {selectedProject.technologies.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-4 py-2 bg-gradient-to-r from-gray-700/40 to-gray-600/40 text-gray-200 rounded-full border border-gray-500/30"
+                <GradientCard gradient="purple">
+                  <div className="max-h-[75vh] overflow-y-auto p-8">
+                    <div className="flex items-start justify-between mb-6">
+                      <h3 className="text-3xl font-bold text-white flex items-center gap-3">
+                        {selectedProject.title}
+                        {selectedProject.featured && <Star className="text-accent-400" size={24} />}
+                      </h3>
+                      <button
+                        onClick={() => setSelectedProject(null)}
+                        className="text-white/60 hover:text-white text-2xl"
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-3">
-                    {selectedProject.githubUrl && (
-                      <GradientButton 
-                        href={selectedProject.githubUrl}
-                        icon={<Github size={20} />}
-                      >
-                        View Code
-                      </GradientButton>
-                    )}
-                    {selectedProject.liveUrl && (
-                      <GradientButton 
-                        variant="secondary"
-                        href={selectedProject.liveUrl}
-                        icon={<ExternalLink size={20} />}
-                      >
-                        Live Demo
-                      </GradientButton>
-                    )}
-                    {selectedProject.websiteUrl && (
-                      <GradientButton 
-                        variant="secondary"
-                        href={selectedProject.websiteUrl}
-                        icon={<Globe size={20} />}
-                      >
-                        Website
-                      </GradientButton>
-                    )}
-                    {selectedProject.steamUrl && (
-                      <GradientButton 
-                        variant="secondary"
-                        href={selectedProject.steamUrl}
-                        icon={<Gamepad2 size={20} />}
-                      >
-                        Steam
-                      </GradientButton>
-                    )}
+                        ×
+                      </button>
+                    </div>
+                    
+                    <div className="text-gray-300 text-lg mb-6 leading-relaxed whitespace-pre-wrap">
+                      {selectedProject.modalContent || selectedProject.longDescription || selectedProject.description}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {selectedProject.technologies.map((tech) => (
+                        <TechTag key={tech} tech={tech} size="md" />
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3">
+                      {selectedProject.githubUrl && (
+                        <GradientButton 
+                          href={selectedProject.githubUrl}
+                          icon={<Github size={20} />}
+                        >
+                          View Code
+                        </GradientButton>
+                      )}
+                      {selectedProject.liveUrl && (
+                        <GradientButton 
+                          variant="secondary"
+                          href={selectedProject.liveUrl}
+                          icon={<ExternalLink size={20} />}
+                        >
+                          Live Demo
+                        </GradientButton>
+                      )}
+                      {selectedProject.websiteUrl && (
+                        <GradientButton 
+                          variant="secondary"
+                          href={selectedProject.websiteUrl}
+                          icon={<Globe size={20} />}
+                        >
+                          Website
+                        </GradientButton>
+                      )}
+                      {selectedProject.steamUrl && (
+                        <GradientButton 
+                          variant="secondary"
+                          href={selectedProject.steamUrl}
+                          icon={<Gamepad2 size={20} />}
+                        >
+                          Steam
+                        </GradientButton>
+                      )}
+                    </div>
                   </div>
                 </GradientCard>
               </motion.div>
