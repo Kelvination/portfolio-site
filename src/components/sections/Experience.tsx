@@ -36,11 +36,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   return (
     <motion.div
       variants={variants.itemVariants}
-      transition={{ delay: settings.framerAnimations ? index * 0.2 : 0 }}
-      className={`flex gap-6 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+      transition={{ delay: settings.framerAnimations ? index * 0.1 : 0 }}
+      className={`mb-24 flex gap-6 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
     >
       {/* Content Card */}
-      <div className="max-w-3xl flex-1">
+      <div className="flex-1">
         <GradientCard gradient={index % 2 === 0 ? "purple" : "blue"}>
           {/* Company Badge */}
           <div className="mb-3 flex items-center gap-3">
@@ -70,9 +70,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           </div>
 
           {/* Description */}
-          <p className="mb-4 leading-relaxed text-gray-300">
-            {exp.description}
-          </p>
+          <p className="leading-relaxed text-gray-300">{exp.description}</p>
 
           {/* Expanded Content */}
           {isExpanded && exp.detailedDescription && (
@@ -82,7 +80,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               exit={{ opacity: 0, height: 0 }}
               className="mb-4"
             >
-              <div className="border-t border-gray-700/50 pt-4">
+              <div className="pt-4">
                 <p className="leading-relaxed text-gray-300">
                   {exp.detailedDescription}
                 </p>
@@ -90,10 +88,26 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </motion.div>
           )}
 
+          {/* Read More Button */}
+          {exp.detailedDescription && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-1 mb-4 flex cursor-pointer items-center gap-2 text-white/40 transition-colors duration-200 hover:text-white"
+            >
+              <span className="text-sm font-medium">
+                {isExpanded ? "Read Less" : "Read More"}
+              </span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isExpanded ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          )}
+
           {/* Technologies */}
           <div className="mb-4 space-y-2">
             <div className="flex items-center gap-2 font-medium text-white">
-              <ChevronRight className="h-4 w-4" />
               <span>Key Technologies</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -106,28 +120,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               ))}
             </div>
           </div>
-
-          {/* Read More Button */}
-          {exp.detailedDescription && (
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 text-white/80 transition-colors duration-200 hover:text-white"
-            >
-              <span className="text-sm font-medium">
-                {isExpanded ? "Read Less" : "Read More"}
-              </span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  isExpanded ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-          )}
         </GradientCard>
       </div>
-      {/* Logo Placeholder */}
-      <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-xl border border-gray-700/50 bg-gray-800/50">
-        <Building className="h-8 w-8 text-gray-400" />
+      {/* Company Logo */}
+      <div className="flex h-40 w-40 max-w-40 flex-shrink-0 items-center justify-center rounded-xl border border-gray-700/50 bg-gray-800/50">
+        {exp.logoUrl ? (
+          <img
+            src={exp.logoUrl}
+            alt={`${exp.company} logo`}
+            className="h-full w-full rounded-xl object-contain"
+          />
+        ) : (
+          <Building className="h-8 w-8 text-gray-400" />
+        )}
       </div>
     </motion.div>
   );
@@ -144,7 +149,7 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         variants={variants.containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -200px 0px" }}
       >
         <SectionHeader
           title="Experience"
@@ -159,11 +164,8 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          variants={variants.itemVariants}
-          className="mt-16 text-center"
-        >
-          <GradientCard gradient="blue" className="inline-block p-8">
+        <motion.div variants={variants.itemVariants} className="text-center">
+          <GradientCard gradient="blue" className="inline-block">
             <h3 className="mb-4 text-2xl font-bold text-white">
               Let's Work Together
             </h3>

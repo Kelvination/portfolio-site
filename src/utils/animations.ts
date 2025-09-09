@@ -58,8 +58,8 @@ export const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      duration: 0.8
+      staggerChildren: 0.08,
+      duration: 0.4
     }
   }
 };
@@ -69,7 +69,7 @@ export const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7 }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -79,7 +79,7 @@ export const heroItemVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7 }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -87,7 +87,7 @@ export const fadeInVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.6 }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -96,7 +96,7 @@ export const slideFromLeftVariants: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6 }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -105,22 +105,22 @@ export const projectItemVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5 }
+    transition: { duration: 0.25 }
   }
 };
 
-export const staggerContainer = (staggerChildren: number = 0.15): Variants => ({
+export const staggerContainer = (staggerChildren: number = 0.08): Variants => ({
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren,
-      duration: 0.8
+      duration: 0.4
     }
   }
 });
 
-export const slideUpVariants = (duration: number = 0.7): Variants => ({
+export const slideUpVariants = (duration: number = 0.3): Variants => ({
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -129,7 +129,7 @@ export const slideUpVariants = (duration: number = 0.7): Variants => ({
   }
 });
 
-export const scaleVariants = (duration: number = 0.5): Variants => ({
+export const scaleVariants = (duration: number = 0.25): Variants => ({
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,

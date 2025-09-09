@@ -1,12 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Code, Database, Server, Wrench } from 'lucide-react';
-import type { Skill } from '../../types';
-import GradientCard from '../ui/GradientCard';
-import SectionHeader from '../ui/SectionHeader';
-import { containerVariants, itemVariants, slideFromLeftVariants } from '../../utils/animations';
-import { getSkillLevelPercentage } from '../../utils/formatters';
-import { skillLevelGradients } from '../../constants/gradients';
+import React from "react";
+import { motion } from "framer-motion";
+import { Code, Database, Server, Wrench } from "lucide-react";
+import type { Skill } from "../../types";
+import GradientCard from "../ui/GradientCard";
+import SectionHeader from "../ui/SectionHeader";
+import {
+  containerVariants,
+  itemVariants,
+  slideFromLeftVariants,
+} from "../../utils/animations";
+import { getSkillLevelPercentage } from "../../utils/formatters";
+import { skillLevelGradients } from "../../constants/gradients";
 
 interface SkillsProps {
   skills: Skill[];
@@ -15,58 +19,63 @@ interface SkillsProps {
 const Skills: React.FC<SkillsProps> = ({ skills }) => {
   const skillCategories = [
     {
-      category: 'frontend',
-      title: 'Frontend Development',
+      category: "frontend",
+      title: "Frontend Development",
       icon: Code,
-      gradient: 'purple' as const,
-      description: 'Creating beautiful and interactive user interfaces'
+      gradient: "purple" as const,
+      description: "Creating beautiful and interactive user interfaces",
     },
     {
-      category: 'backend',
-      title: 'Backend Development',
+      category: "backend",
+      title: "Backend Development",
       icon: Server,
-      gradient: 'blue' as const,
-      description: 'Building robust server-side applications and APIs'
+      gradient: "blue" as const,
+      description: "Building robust server-side applications and APIs",
     },
     {
-      category: 'database',
-      title: 'Database Management',
+      category: "database",
+      title: "Database Management",
       icon: Database,
-      gradient: 'purple' as const,
-      description: 'Designing and optimizing data storage solutions'
+      gradient: "purple" as const,
+      description: "Designing and optimizing data storage solutions",
     },
     {
-      category: 'tools',
-      title: 'Development Tools',
+      category: "tools",
+      title: "Development Tools",
       icon: Wrench,
-      gradient: 'blue' as const,
-      description: 'Leveraging modern tools and deployment platforms'
-    }
+      gradient: "blue" as const,
+      description: "Leveraging modern tools and deployment platforms",
+    },
   ];
 
   const getLevelColor = (level: string) => {
-    return skillLevelGradients[level as keyof typeof skillLevelGradients] || skillLevelGradients.intermediate;
+    return (
+      skillLevelGradients[level as keyof typeof skillLevelGradients] ||
+      skillLevelGradients.intermediate
+    );
   };
 
   return (
-    <section id="skills" className="py-20 px-6 relative">
+    <section id="skills" className="relative px-6 py-20">
       <motion.div
-        className="max-w-6xl mx-auto"
+        className="mx-auto max-w-6xl"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -200px 0px" }}
       >
-        <SectionHeader 
+        <SectionHeader
           title="Skills & Expertise"
           subtitle="Technologies and tools I use to bring ideas to life"
         />
 
         {/* Skills Categories */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid gap-8 lg:grid-cols-2">
           {skillCategories.map((categoryInfo, categoryIndex) => {
-            const categorySkills = skills.filter(skill => skill.category === categoryInfo.category);
-            
+            const categorySkills = skills.filter(
+              (skill) => skill.category === categoryInfo.category
+            );
+
             if (categorySkills.length === 0) return null;
 
             return (
@@ -75,19 +84,30 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                 variants={itemVariants}
                 transition={{ delay: categoryIndex * 0.2 }}
               >
-                <GradientCard gradient={categoryInfo.gradient} className="p-8 h-full">
+                <GradientCard
+                  gradient={categoryInfo.gradient}
+                  className="h-full p-8"
+                >
                   {/* Category Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${
-                      categoryInfo.gradient === 'purple' ? 'from-gray-700/40 to-gray-600/40' :
-                      categoryInfo.gradient === 'blue' ? 'from-gray-600/40 to-gray-700/40' :
-                      'from-gray-650/40 to-gray-700/40'
-                    }`}>
-                      <categoryInfo.icon className="w-6 h-6 text-white" />
+                  <div className="mb-6 flex items-center gap-4">
+                    <div
+                      className={`rounded-lg bg-gradient-to-r p-3 ${
+                        categoryInfo.gradient === "purple"
+                          ? "from-gray-700/40 to-gray-600/40"
+                          : categoryInfo.gradient === "blue"
+                            ? "from-gray-600/40 to-gray-700/40"
+                            : "from-gray-650/40 to-gray-700/40"
+                      }`}
+                    >
+                      <categoryInfo.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white">{categoryInfo.title}</h3>
-                      <p className="text-gray-300 text-sm">{categoryInfo.description}</p>
+                      <h3 className="text-2xl font-bold text-white">
+                        {categoryInfo.title}
+                      </h3>
+                      <p className="text-sm text-gray-300">
+                        {categoryInfo.description}
+                      </p>
                     </div>
                   </div>
 
@@ -99,40 +119,57 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                         variants={slideFromLeftVariants}
                         initial="hidden"
                         whileInView="visible"
-                        transition={{ delay: (categoryIndex * 0.2) + (index * 0.1) }}
-                        viewport={{ once: true }}
+                        transition={{
+                          delay: categoryIndex * 0.2 + index * 0.1,
+                        }}
+                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-white font-medium">{skill.name}</span>
-                          <span className={`text-sm px-2 py-1 rounded-full ${
-                            skill.level === 'expert' ? 'bg-accent-500/20 text-accent-300' :
-                            skill.level === 'advanced' ? 'bg-gray-600/30 text-gray-200' :
-                            skill.level === 'intermediate' ? 'bg-gray-700/30 text-gray-300' :
-                            'bg-gray-800/30 text-gray-400'
-                          }`}>
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="font-medium text-white">
+                            {skill.name}
+                          </span>
+                          <span
+                            className={`rounded-full px-2 py-1 text-sm ${
+                              skill.level === "expert"
+                                ? "bg-accent-500/20 text-accent-300"
+                                : skill.level === "advanced"
+                                  ? "bg-gray-600/30 text-gray-200"
+                                  : skill.level === "intermediate"
+                                    ? "bg-gray-700/30 text-gray-300"
+                                    : "bg-gray-800/30 text-gray-400"
+                            }`}
+                          >
                             {skill.level}
                           </span>
                         </div>
-                        
+
                         {/* Skill Progress Bar */}
-                        <div className="relative h-2 bg-gray-800/30 rounded-full overflow-hidden">
+                        <div className="relative h-2 overflow-hidden rounded-full bg-gray-800/30">
                           <motion.div
-                            className={`absolute left-0 top-0 h-full bg-gradient-to-r ${getLevelColor(skill.level)} rounded-full`}
+                            className={`absolute top-0 left-0 h-full bg-gradient-to-r ${getLevelColor(skill.level)} rounded-full`}
                             initial={{ width: 0 }}
-                            whileInView={{ width: `${getSkillLevelPercentage(skill.level)}%` }}
-                            transition={{ duration: 1, delay: (categoryIndex * 0.2) + (index * 0.1) + 0.5 }}
-                            viewport={{ once: true }}
+                            whileInView={{
+                              width: `${getSkillLevelPercentage(skill.level)}%`,
+                            }}
+                            transition={{
+                              duration: 1,
+                              delay: categoryIndex * 0.2 + index * 0.1 + 0.5,
+                            }}
+                            viewport={{
+                              once: true,
+                              margin: "0px 0px -100px 0px",
+                            }}
                           />
-                          
+
                           {/* Shimmer effect */}
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-                            animate={{ translateX: ['100%', '-100%'] }}
+                            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ translateX: ["100%", "-100%"] }}
                             transition={{
                               duration: 2,
                               repeat: Infinity,
                               repeatDelay: 1,
-                              delay: (categoryIndex * 0.2) + (index * 0.1) + 1
+                              delay: categoryIndex * 0.2 + index * 0.1 + 1,
                             }}
                           />
                         </div>
@@ -148,10 +185,13 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
         {/* Skills Summary */}
         <motion.div variants={itemVariants} className="mt-16 text-center">
           <GradientCard gradient="purple" className="inline-block p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">Always Learning</h3>
-            <p className="text-gray-300 max-w-2xl">
-              Technology evolves rapidly, and I'm committed to continuous learning. 
-              I regularly explore new frameworks, languages, and tools to stay at the forefront of development.
+            <h3 className="mb-4 text-2xl font-bold text-white">
+              Always Learning
+            </h3>
+            <p className="max-w-2xl text-gray-300">
+              Technology evolves rapidly, and I'm committed to continuous
+              learning. I regularly explore new frameworks, languages, AI tools,
+              and other technologies to stay at the forefront of development.
             </p>
           </GradientCard>
         </motion.div>

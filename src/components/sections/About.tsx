@@ -1,22 +1,16 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Award } from "lucide-react";
+import { MapPin } from "lucide-react";
+import React from "react";
 import type { PersonalInfo } from "../../types";
+import { containerVariants, itemVariants } from "../../utils/animations";
 import GradientCard from "../ui/GradientCard";
 import SectionHeader from "../ui/SectionHeader";
-import { containerVariants, itemVariants } from "../../utils/animations";
 
 interface AboutProps {
   personalInfo: PersonalInfo;
 }
 
 const About: React.FC<AboutProps> = ({ personalInfo }) => {
-  const stats = [
-    { label: "Years Experience", value: "3+", icon: Calendar },
-    { label: "Projects Completed", value: "25+", icon: Award },
-    { label: "Technologies", value: "15+", icon: MapPin },
-  ];
-
   const timeline = [
     {
       year: "2025",
@@ -45,7 +39,7 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -200px 0px" }}
       >
         <SectionHeader title="About Me" className="px-4" />
         <motion.div variants={itemVariants} className="mb-16 text-center">
@@ -58,41 +52,26 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
             <GradientCard gradient="purple" className="p-8 md:p-10">
               <h3 className="mb-6 text-2xl font-bold text-white">My Journey</h3>
               <p className="mb-8 text-lg leading-relaxed text-gray-300">
-                {personalInfo.bio}
+                Graduated from the University of Kentucky in 2018 with dreams of
+                making websites, mobile apps, and video games, while learning
+                the fundamentals of software development.
+              </p>
+              <p className="mb-8 text-lg leading-relaxed text-gray-300">
+                I then spent four years at eLink Design building and maintaining
+                everything from multi-million dollar e-commerce sites to mobile
+                apps for nurses and horse doctors.
+              </p>
+              <p className="mb-8 text-lg leading-relaxed text-gray-300">
+                Then at Hudl, I led the development of the Fan Mobile App,
+                serving millions of users. While there, I learned about
+                Microservices and enterprise software architecture.
               </p>
               <p className="text-lg leading-relaxed text-gray-300">
-                I'm passionate about creating digital experiences that not only
-                look beautiful but also solve real-world problems. My journey in
-                software engineering has been driven by curiosity and a constant
-                desire to learn and grow.
+                Now I'm focused on the next step of my career, focusing on
+                staying at the bleeding edge of technology by building agentic
+                systems and growing my skills in AI development.
               </p>
             </GradientCard>
-
-            {/* Stats */}
-            <div className="px-2">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    variants={itemVariants}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <GradientCard
-                      gradient="blue"
-                      className="p-6 text-center md:p-8"
-                    >
-                      <stat.icon className="mx-auto mb-4 h-8 w-8 text-gray-400" />
-                      <div className="mb-3 text-3xl font-bold text-white">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm leading-relaxed text-gray-300">
-                        {stat.label}
-                      </div>
-                    </GradientCard>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column - Timeline */}
