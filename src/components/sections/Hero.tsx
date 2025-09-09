@@ -71,7 +71,9 @@ const Hero: React.FC<HeroProps> = ({ personalInfo }) => {
 
         {/* CTA Buttons */}
         <motion.div 
-          variants={heroItemVariants}
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
         >
           <GradientButton size="lg" icon={<Mail size={20} />}>
@@ -94,8 +96,8 @@ const Hero: React.FC<HeroProps> = ({ personalInfo }) => {
           {personalInfo.email && (
             <motion.a 
               href={`mailto:${personalInfo.email}`}
-              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300 text-white group"
-              whileHover={{ y: -2, scale: 1.1 }}
+              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 text-white group"
+              whileHover={{ y: -2, scale: 1.1, backgroundColor: "rgb(63 63 70 / 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail size={24} className="group-hover:text-accent-400 transition-colors" />
@@ -104,21 +106,21 @@ const Hero: React.FC<HeroProps> = ({ personalInfo }) => {
           {personalInfo.github && (
             <motion.a 
               href={personalInfo.github}
-              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300 text-white group"
-              whileHover={{ y: -2, scale: 1.1 }}
+              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 text-white group"
+              whileHover={{ y: -2, scale: 1.1, backgroundColor: "rgb(63 63 70 / 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github size={24} className="group-hover:text-gray-300 transition-colors" />
+              <Github size={24} className="group-hover:text-accent-400 transition-colors" />
             </motion.a>
           )}
           {personalInfo.linkedin && (
             <motion.a 
               href={personalInfo.linkedin}
-              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300 text-white group"
-              whileHover={{ y: -2, scale: 1.1 }}
+              className="p-4 rounded-full bg-gray-800/40 backdrop-blur-md border border-gray-600/30 text-white group"
+              whileHover={{ y: -2, scale: 1.1, backgroundColor: "rgb(63 63 70 / 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Linkedin size={24} className="group-hover:text-gray-300 transition-colors" />
+              <Linkedin size={24} className="group-hover:text-accent-400 transition-colors" />
             </motion.a>
           )}
         </motion.div>

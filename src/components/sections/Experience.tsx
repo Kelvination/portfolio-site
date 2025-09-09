@@ -1,133 +1,186 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Briefcase, ChevronRight } from 'lucide-react';
-import type { Experience } from '../../types';
-import GradientCard from '../ui/GradientCard';
-import SectionHeader from '../ui/SectionHeader';
-import TechTag from '../ui/TechTag';
-import { containerVariants, itemVariants } from '../../utils/animations';
-import { formatDateRange } from '../../utils/formatters';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  MapPin,
+  Briefcase,
+  ChevronRight,
+  ChevronDown,
+  Building,
+} from "lucide-react";
+import type { Experience } from "../../types";
+import GradientCard from "../ui/GradientCard";
+import SectionHeader from "../ui/SectionHeader";
+import TechTag from "../ui/TechTag";
+import { createVariants } from "../../utils/animations";
+import { usePerformance } from "../../contexts/PerformanceContext";
+import { formatDateRange } from "../../utils/formatters";
 
 interface ExperienceProps {
   experience: Experience[];
 }
 
-const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
+interface ExperienceCardProps {
+  experience: Experience;
+  index: number;
+}
+
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
+  experience: exp,
+  index,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const { settings } = usePerformance();
+  const variants = createVariants({ enabled: settings.framerAnimations });
 
   return (
-    <section id="experience" className="py-20 px-6 relative">
+    <motion.div
+      variants={variants.itemVariants}
+      transition={{ delay: settings.framerAnimations ? index * 0.2 : 0 }}
+      className={`flex gap-6 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+    >
+      {/* Content Card */}
+      <div className="max-w-3xl flex-1">
+        <GradientCard gradient={index % 2 === 0 ? "purple" : "blue"}>
+          {/* Company Badge */}
+          <div className="mb-3 flex items-center gap-3">
+            <div className="rounded-lg bg-gray-800/30 p-2">
+              <Briefcase className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
+              <div className="bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-lg font-medium text-transparent">
+                {exp.company}
+              </div>
+            </div>
+          </div>
+
+          {/* Meta Info */}
+          <div className="mb-4 flex flex-col gap-4 text-gray-400 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span className="text-sm">
+                {formatDateRange(exp.startDate, exp.endDate)}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              <span className="text-sm">{exp.location}</span>
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="mb-4 leading-relaxed text-gray-300">
+            {exp.description}
+          </p>
+
+          {/* Expanded Content */}
+          {isExpanded && exp.detailedDescription && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mb-4"
+            >
+              <div className="border-t border-gray-700/50 pt-4">
+                <p className="leading-relaxed text-gray-300">
+                  {exp.detailedDescription}
+                </p>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Technologies */}
+          <div className="mb-4 space-y-2">
+            <div className="flex items-center gap-2 font-medium text-white">
+              <ChevronRight className="h-4 w-4" />
+              <span>Key Technologies</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {exp.technologies.map((tech) => (
+                <TechTag
+                  key={tech}
+                  tech={tech}
+                  variant={index % 2 === 0 ? "skill" : "outlined"}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Read More Button */}
+          {exp.detailedDescription && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center gap-2 text-white/80 transition-colors duration-200 hover:text-white"
+            >
+              <span className="text-sm font-medium">
+                {isExpanded ? "Read Less" : "Read More"}
+              </span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isExpanded ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          )}
+        </GradientCard>
+      </div>
+      {/* Logo Placeholder */}
+      <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-xl border border-gray-700/50 bg-gray-800/50">
+        <Building className="h-8 w-8 text-gray-400" />
+      </div>
+    </motion.div>
+  );
+};
+
+const ExperienceSection: React.FC<ExperienceProps> = ({ experience }) => {
+  const { settings } = usePerformance();
+  const variants = createVariants({ enabled: settings.framerAnimations });
+
+  return (
+    <section id="experience" className="relative px-6 py-20">
       <motion.div
-        className="max-w-5xl mx-auto"
-        variants={containerVariants}
+        className="mx-auto max-w-5xl"
+        variants={variants.containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <SectionHeader 
+        <SectionHeader
           title="Experience"
           subtitle="My professional journey and the experiences that shaped my expertise"
         />
 
-        {/* Experience Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-500 via-gray-600 to-gray-700 transform md:-translate-x-px" />
-
+        {/* Experience Grid */}
+        <div className="space-y-8">
           {experience.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              variants={itemVariants}
-              transition={{ delay: index * 0.2 }}
-              className={`relative flex items-center mb-16 ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full transform -translate-x-2 md:-translate-x-2 z-10 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full animate-ping opacity-20" />
-              </div>
-
-              {/* Content */}
-              <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
-              }`}>
-                <GradientCard 
-                  gradient={index % 2 === 0 ? 'purple' : 'blue'} 
-                  className="p-8"
-                >
-                  {/* Company Badge */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-lg bg-gray-800/30">
-                      <Briefcase className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
-                      <div className="text-lg font-medium bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
-                        {exp.company}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Meta Info */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-400 mb-6">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">
-                        {formatDateRange(exp.startDate, exp.endDate)}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      <span className="text-sm">{exp.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                    {exp.description}
-                  </p>
-
-                  {/* Technologies */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-white font-medium">
-                      <ChevronRight className="w-4 h-4" />
-                      <span>Key Technologies</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <TechTag 
-                          key={tech}
-                          tech={tech}
-                          variant={index % 2 === 0 ? 'skill' : 'outlined'}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </GradientCard>
-              </div>
-
-              {/* Spacer for alignment */}
-              <div className="hidden md:block w-2/12" />
-            </motion.div>
+            <ExperienceCard key={exp.id} experience={exp} index={index} />
           ))}
         </div>
 
         {/* Call to Action */}
-        <motion.div variants={itemVariants} className="text-center mt-16">
+        <motion.div
+          variants={variants.itemVariants}
+          className="mt-16 text-center"
+        >
           <GradientCard gradient="blue" className="inline-block p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">Let's Work Together</h3>
-            <p className="text-gray-300 mb-6 max-w-lg">
-              I'm always interested in new opportunities and exciting projects. 
+            <h3 className="mb-4 text-2xl font-bold text-white">
+              Let's Work Together
+            </h3>
+            <p className="mb-6 max-w-lg text-gray-300">
+              I'm always interested in new opportunities and exciting projects.
               Let's discuss how we can create something amazing together.
             </p>
             <motion.a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-lg font-medium hover:from-accent-600 hover:to-accent-700 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r px-6 py-3 font-medium text-white transition-all duration-300"
+              whileHover={
+                settings.framerAnimations ? { scale: 1.05, y: -2 } : {}
+              }
+              whileTap={settings.framerAnimations ? { scale: 0.95 } : {}}
             >
               Get In Touch
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="h-4 w-4" />
             </motion.a>
           </GradientCard>
         </motion.div>

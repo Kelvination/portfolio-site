@@ -1,0 +1,1 @@
+- don't hardcode color values ever, always use theme values

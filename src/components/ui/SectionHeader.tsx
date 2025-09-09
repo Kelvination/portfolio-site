@@ -14,7 +14,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   className = '' 
 }) => {
   return (
-    <motion.div variants={itemVariants} className={`text-center mb-16 ${className}`}>
+    <motion.div variants={itemVariants} className={`text-center mb-14 ${className}`}>
       <h2 className="text-5xl md:text-6xl font-bold mb-6">
         <span className="bg-gradient-to-r from-gray-200 to-gray-100 bg-clip-text text-transparent">
           {title}

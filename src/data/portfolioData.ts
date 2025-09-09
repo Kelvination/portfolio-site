@@ -4,7 +4,7 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: 'Kelvin Newton',
     title: 'Agentic Software Engineer',
-    bio: 'Experienced software engineer specializing in agentic development. I don\'t vibe code — I use agentic tools to enhance my delivery of clean solutions that solve real problems and create products people love.',
+    bio: 'Experienced software engineer specializing in agentic development. I don\'t vibe code — I use agentic tools to enhance my productivity to create products people love.',
     location: 'Georgetown, KY',
     email: 'kelvin.a.newton@gmail.com',
     github: 'https://github.com/Kelvination',
@@ -69,6 +69,8 @@ export const portfolioData: PortfolioData = {
       location: 'Remote / Lexington, KY',
       startDate: '2022-10',
       description: 'Led development of the Hudl Fan mobile app from the ground up, as well as making significant contributions to microservice backends to support millions of users.',
+      detailedDescription: 'Add detailed description here about your specific accomplishments, projects worked on, impact made, and technical challenges overcome at Hudl.',
+      logoUrl: '/placeholder-logo.png',
       technologies: [
         'React Native',
         '.NET',
@@ -85,6 +87,8 @@ export const portfolioData: PortfolioData = {
       startDate: '2018-12',
       endDate: '2022-10',
       description: 'Developed and maintained full stack applications for multi-million dollar e-commerce websites and mobile applications, working directly with stakeholders to ensure high-quality delivery',
+      detailedDescription: 'Add detailed description here about your specific projects, clients worked with, technical solutions implemented, and growth during your time at eLink Design.',
+      logoUrl: '/placeholder-logo.png',
       technologies: [
         'Vue.js',
         'LAMP',
@@ -107,9 +111,9 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: '3',
-      name: 'Node.js',
+      name: 'Express.js',
       category: 'backend',
-      level: 'advanced'
+      level: 'expert'
     },
     {
       id: '4',
@@ -125,7 +129,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: '1757423207663',
-      name: 'Microservice Architecture',
+      name: 'Node.js',
       category: 'backend',
       level: 'advanced'
     },
@@ -145,7 +149,7 @@ export const portfolioData: PortfolioData = {
       id: '1757423270981',
       name: 'MongoDB / DocDB',
       category: 'database',
-      level: 'beginner'
+      level: 'expert'
     },
     {
       id: '1757423281998',
@@ -176,6 +180,30 @@ export const portfolioData: PortfolioData = {
       name: 'Context Engineering',
       category: 'other',
       level: 'advanced'
+    },
+    {
+      id: '1757438592255',
+      name: 'Apache',
+      category: 'backend',
+      level: 'intermediate'
+    },
+    {
+      id: '1757438592581',
+      name: 'AWS Cloud Infrastructure',
+      category: 'backend',
+      level: 'advanced'
+    },
+    {
+      id: '1757438592862',
+      name: 'Microservice Architecture',
+      category: 'backend',
+      level: 'advanced'
+    },
+    {
+      id: '1757438649379',
+      name: 'MySQL',
+      category: 'database',
+      level: 'intermediate'
     }
   ]
 };

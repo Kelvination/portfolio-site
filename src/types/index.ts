@@ -21,6 +21,8 @@ export interface Experience {
   startDate: string;
   endDate?: string;
   description: string;
+  detailedDescription?: string;
+  logoUrl?: string;
   technologies: string[];
 }
 

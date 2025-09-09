@@ -1,5 +1,58 @@
 import type { Variants } from 'framer-motion';
 
+interface AnimationConfig {
+  enabled: boolean;
+}
+
+export const createVariants = (config: AnimationConfig = { enabled: true }): {
+  containerVariants: Variants;
+  itemVariants: Variants;
+  heroItemVariants: Variants;
+  fadeInVariants: Variants;
+  slideFromLeftVariants: Variants;
+  projectItemVariants: Variants;
+} => {
+  if (!config.enabled) {
+    // Return non-animated variants when disabled
+    const staticVariant = { opacity: 1, x: 0, y: 0, scale: 1 };
+    return {
+      containerVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+      itemVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+      heroItemVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+      fadeInVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+      slideFromLeftVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+      projectItemVariants: {
+        hidden: staticVariant,
+        visible: staticVariant,
+      },
+    };
+  }
+
+  return {
+    containerVariants,
+    itemVariants,
+    heroItemVariants,
+    fadeInVariants,
+    slideFromLeftVariants,
+    projectItemVariants,
+  };
+};
+
 export const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {

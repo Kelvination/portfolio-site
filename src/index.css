@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
 /* Tailwind v4 Custom Color Definitions - Grayscale/Teal Theme */
 @theme {
@@ -33,7 +33,7 @@
   --animate-foreground-sweep: foregroundSweep 18s linear infinite;
   --animate-gradient-shift: gradientShift 12s ease-in-out infinite;
   --animate-orbital-motion: orbitalMotion 15s linear infinite;
-  --animate-pulse-glow: pulseGlow 12s ease-in-out infinite alternate;
+  --animate-pulse-glow: pulseGlow 22s ease-in-out infinite alternate;
 
   /* Keyframes */
   @keyframes fadeIn {
@@ -87,19 +87,39 @@
 
   @keyframes radialDrift {
     0% {
-      background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+      background-position:
+        0% 0%,
+        100% 0%,
+        0% 100%,
+        100% 100%;
     }
     25% {
-      background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
+      background-position:
+        25% 25%,
+        75% 25%,
+        25% 75%,
+        75% 75%;
     }
     50% {
-      background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+      background-position:
+        50% 50%,
+        50% 50%,
+        50% 50%,
+        50% 50%;
     }
     75% {
-      background-position: 75% 25%, 25% 75%, 75% 25%, 25% 75%;
+      background-position:
+        75% 25%,
+        25% 75%,
+        75% 25%,
+        25% 75%;
     }
     100% {
-      background-position: 100% 100%, 0% 100%, 100% 0%, 0% 0%;
+      background-position:
+        100% 100%,
+        0% 100%,
+        100% 0%,
+        0% 0%;
     }
   }
 
@@ -114,34 +134,57 @@
 
   @keyframes gradientShift {
     0% {
-      background-position: 0% 0%, 100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%;
     }
     33% {
-      background-position: 100% 50%, 0% 50%;
+      background-position:
+        100% 50%,
+        0% 50%;
     }
     66% {
-      background-position: 50% 100%, 50% 0%;
+      background-position:
+        50% 100%,
+        50% 0%;
     }
     100% {
-      background-position: 0% 0%, 100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%;
     }
   }
 
   @keyframes orbitalMotion {
     0% {
-      background-position: 20% 80%, 80% 20%, 40% 40%;
+      background-position:
+        20% 80%,
+        80% 20%,
+        40% 40%;
     }
     25% {
-      background-position: 80% 80%, 20% 20%, 60% 60%;
+      background-position:
+        80% 80%,
+        20% 20%,
+        60% 60%;
     }
     50% {
-      background-position: 80% 20%, 20% 80%, 40% 40%;
+      background-position:
+        80% 20%,
+        20% 80%,
+        40% 40%;
     }
     75% {
-      background-position: 20% 20%, 80% 80%, 60% 60%;
+      background-position:
+        20% 20%,
+        80% 80%,
+        60% 60%;
     }
     100% {
-      background-position: 20% 80%, 80% 20%, 40% 40%;
+      background-position:
+        20% 80%,
+        80% 20%,
+        40% 40%;
     }
   }
 
