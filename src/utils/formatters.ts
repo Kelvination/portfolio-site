@@ -19,15 +19,7 @@ export const generateInitials = (name: string): string => {
   return name.split(' ').map(n => n[0]).join('');
 };
 
-export const getSkillLevelPercentage = (level: string): number => {
-  switch (level) {
-    case 'beginner': return 25;
-    case 'intermediate': return 50;
-    case 'advanced': return 75;
-    case 'expert': return 100;
-    default: return 50;
-  }
-};
+// Skill level functions moved to config/skillLevels.ts
 
 export const capitalizeFirst = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);

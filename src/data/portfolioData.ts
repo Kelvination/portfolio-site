@@ -3,8 +3,8 @@ import type { PortfolioData } from '../types';
 export const portfolioData: PortfolioData = {
   personalInfo: {
     name: 'Kelvin Newton',
-    title: 'Agentic Software Engineer',
-    bio: 'Experienced software engineer specializing in agentic development. I don\'t vibe code — I use agentic tools to enhance my productivity to create products people love.',
+    title: 'Software Engineer',
+    bio: 'Full-stack software engineer with 7+ years building applications that serve millions of users. Passionate about leveraging AI to create meaningful technology that solves real problems for real people.',
     location: 'Georgetown, KY',
     email: 'kelvin.a.newton@gmail.com',
     github: 'https://github.com/Kelvination',
@@ -115,115 +115,127 @@ export const portfolioData: PortfolioData = {
       id: '1',
       name: 'React / React Native',
       category: 'frontend',
-      level: 'expert'
+      level: 4
     },
     {
       id: '2',
       name: 'Javascript / TypeScript',
       category: 'frontend',
-      level: 'expert'
+      level: 4
     },
     {
       id: '3',
       name: 'Express.js',
       category: 'backend',
-      level: 'expert'
+      level: 4
     },
     {
       id: '4',
       name: 'PostgreSQL',
       category: 'database',
-      level: 'intermediate'
-    },
-    {
-      id: '5',
-      name: 'AWS',
-      category: 'tools',
-      level: 'intermediate'
+      level: 2
     },
     {
       id: '1757423207663',
       name: 'Node.js',
       category: 'backend',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757423221182',
       name: 'Vue',
       category: 'frontend',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757423251483',
       name: 'SQL',
       category: 'database',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757423270981',
       name: 'MongoDB / DocDB',
       category: 'database',
-      level: 'expert'
+      level: 4
     },
     {
       id: '1757423281998',
-      name: 'Claude Code',
+      name: 'VSCode',
       category: 'tools',
-      level: 'expert'
+      level: 4
     },
     {
       id: '1757423289402',
-      name: 'Github Copilot',
+      name: 'VIM',
       category: 'tools',
-      level: 'expert'
+      level: 3
     },
     {
       id: '1757423289663',
-      name: 'Cursor',
+      name: 'Claude Code',
       category: 'tools',
-      level: 'advanced'
+      level: 4
     },
     {
       id: '1757423289890',
       name: 'Prompt Engineering',
       category: 'other',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757423361169',
       name: 'Context Engineering',
       category: 'other',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757438592255',
       name: 'Apache',
       category: 'backend',
-      level: 'intermediate'
+      level: 2
     },
     {
       id: '1757438592581',
       name: 'AWS Cloud Infrastructure',
       category: 'backend',
-      level: 'advanced'
+      level: 2
     },
     {
       id: '1757438592862',
       name: 'Microservice Architecture',
       category: 'backend',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757438649379',
       name: 'MySQL',
       category: 'database',
-      level: 'advanced'
+      level: 3
     },
     {
       id: '1757438851606',
       name: 'HTML / CSS',
       category: 'frontend',
-      level: 'expert'
+      level: 4
+    },
+    {
+      id: '1757457565731',
+      name: 'Cursor / Github Copilot',
+      category: 'tools',
+      level: 3
+    },
+    {
+      id: '1757457783577',
+      name: 'PHP / C#',
+      category: 'backend',
+      level: 3
+    },
+    {
+      id: '1757458652322',
+      name: 'Swift / Kotlin',
+      category: 'frontend',
+      level: 1
     }
   ]
 };

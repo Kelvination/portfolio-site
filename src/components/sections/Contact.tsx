@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Github, Linkedin, ExternalLink } from "lucide-react";
 import type { PersonalInfo } from "../../types";
-import GradientCard from "../ui/GradientCard";
 import SectionHeader from "../ui/SectionHeader";
 import { containerVariants, itemVariants } from "../../utils/animations";
 
@@ -25,80 +24,94 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
           subtitle="Have a project in mind? Let's discuss how we can work together to bring your ideas to life."
         />
 
-        {/* Contact Info */}
-        <motion.div variants={itemVariants} className="mx-auto max-w-4xl">
-          <GradientCard gradient="purple" className="p-8">
-            <div className="mb-6 flex flex-row items-center justify-center gap-4 border-b border-gray-600/20 pb-4">
-              <h3 className="text-center text-2xl font-bold text-white">
-                Let's Connect
-              </h3>
-              <div className="flex justify-center gap-4">
-                {personalInfo.github && (
-                  <motion.a
-                    href={personalInfo.github}
-                    className="group rounded-lg bg-gray-800/30 p-3 text-white transition-all duration-300 hover:bg-gray-700/40"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github className="h-5 w-5 transition-colors group-hover:text-gray-300" />
-                  </motion.a>
-                )}
-                {personalInfo.linkedin && (
-                  <motion.a
-                    href={personalInfo.linkedin}
-                    className="group rounded-lg bg-gray-800/30 p-3 text-white transition-all duration-300 hover:bg-gray-700/40"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Linkedin className="h-5 w-5 transition-colors group-hover:text-gray-300" />
-                  </motion.a>
-                )}
-                {personalInfo.website && (
-                  <motion.a
-                    href={personalInfo.website}
-                    className="group rounded-lg bg-gray-800/30 p-3 text-white transition-all duration-300 hover:bg-gray-700/40"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink className="h-5 w-5 transition-colors group-hover:text-gray-300" />
-                  </motion.a>
-                )}
-              </div>
+        {/* Contact Content */}
+        <motion.div
+          variants={itemVariants}
+          className="mx-auto max-w-4xl text-center"
+        >
+          {/* Social Links Header */}
+          <div className="mb-12 flex flex-col items-center justify-center gap-6">
+            <h3 className="text-3xl font-bold text-white">Let's Connect</h3>
+            <div className="flex justify-center gap-4">
+              {personalInfo.github && (
+                <motion.a
+                  href={personalInfo.github}
+                  className="group rounded-xl border border-gray-600/20 bg-gray-800/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-gray-500/40 hover:bg-gray-700/30"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Github className="h-6 w-6 transition-colors group-hover:text-gray-300" />
+                </motion.a>
+              )}
+              {personalInfo.linkedin && (
+                <motion.a
+                  href={personalInfo.linkedin}
+                  className="group rounded-xl border border-gray-600/20 bg-gray-800/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-gray-500/40 hover:bg-gray-700/30"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Linkedin className="h-6 w-6 transition-colors group-hover:text-gray-300" />
+                </motion.a>
+              )}
+              {personalInfo.website && (
+                <motion.a
+                  href={personalInfo.website}
+                  className="group rounded-xl border border-gray-600/20 bg-gray-800/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-gray-500/40 hover:bg-gray-700/30"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink className="h-6 w-6 transition-colors group-hover:text-gray-300" />
+                </motion.a>
+              )}
             </div>
-            <p className="mx-auto mb-8 max-w-2xl text-center text-lg leading-relaxed text-gray-300">
-              I'm always excited to discuss new opportunities, collaborate on
-              interesting projects, or simply chat about technology and
-              development.
-            </p>
+          </div>
 
-            {/* Contact Methods */}
-            <div className="mb-8 grid gap-6 md:grid-cols-2">
-              <div className="flex items-center justify-center gap-4 md:justify-start">
-                <div className="rounded-lg bg-gradient-to-r from-gray-700/30 to-gray-600/30 p-3">
-                  <Mail className="h-6 w-6 text-gray-400" />
+          {/* Description */}
+          <p className="mx-auto mb-16 max-w-3xl text-xl leading-relaxed text-gray-300">
+            I'm always excited to discuss new opportunities, collaborate on
+            interesting projects, or simply chat about technology and
+            development.
+          </p>
+
+          {/* Contact Methods */}
+          <div className="mx-auto grid max-w-2xl gap-8 md:grid-cols-2">
+            <motion.div
+              className="group flex flex-col items-center gap-4 rounded-2xl border border-gray-600/20 bg-gray-800/10 p-8 backdrop-blur-sm transition-all duration-300 hover:border-gray-500/30 hover:bg-gray-800/20"
+              whileHover={{ y: -4, scale: 1.02 }}
+            >
+              <div className="rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 p-4">
+                <Mail className="h-8 w-8 text-blue-400" />
+              </div>
+              <div className="text-center">
+                <div className="mb-2 text-xl font-semibold text-white">
+                  Email
                 </div>
-                <div>
-                  <div className="font-medium text-white">Email</div>
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="text-gray-300 transition-colors hover:text-gray-200"
-                  >
-                    {personalInfo.email}
-                  </a>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="text-lg text-gray-300 transition-colors hover:text-blue-400"
+                >
+                  {personalInfo.email}
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="group flex flex-col items-center gap-4 rounded-2xl border border-gray-600/20 bg-gray-800/10 p-8 backdrop-blur-sm transition-all duration-300 hover:border-gray-500/30 hover:bg-gray-800/20"
+              whileHover={{ y: -4, scale: 1.02 }}
+            >
+              <div className="rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 p-4">
+                <MapPin className="h-8 w-8 text-green-400" />
+              </div>
+              <div className="text-center">
+                <div className="mb-2 text-xl font-semibold text-white">
+                  Location
+                </div>
+                <div className="text-lg text-gray-300">
+                  {personalInfo.location}
                 </div>
               </div>
-
-              <div className="flex items-center justify-center gap-4 md:justify-start">
-                <div className="rounded-lg bg-gradient-to-r from-gray-700/30 to-gray-600/30 p-3">
-                  <MapPin className="h-6 w-6 text-gray-400" />
-                </div>
-                <div>
-                  <div className="font-medium text-white">Location</div>
-                  <div className="text-gray-300">{personalInfo.location}</div>
-                </div>
-              </div>
-            </div>
-          </GradientCard>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Footer */}

@@ -9,8 +9,12 @@ import {
   itemVariants,
   slideFromLeftVariants,
 } from "../../utils/animations";
-import { getSkillLevelPercentage } from "../../utils/formatters";
-import { skillLevelGradients } from "../../constants/gradients";
+import {
+  getSkillLevelPercentage,
+  getSkillLevelGradient,
+  getSkillLevelLabel,
+  getSkillLevelStyles,
+} from "../../config/skillLevels";
 
 interface SkillsProps {
   skills: Skill[];
@@ -48,11 +52,8 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
     },
   ];
 
-  const getLevelColor = (level: string) => {
-    return (
-      skillLevelGradients[level as keyof typeof skillLevelGradients] ||
-      skillLevelGradients.intermediate
-    );
+  const getLevelColor = (level: number) => {
+    return getSkillLevelGradient(level);
   };
 
   return (
@@ -129,17 +130,9 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                             {skill.name}
                           </span>
                           <span
-                            className={`rounded-full px-2 py-1 text-sm ${
-                              skill.level === "expert"
-                                ? "bg-accent-500/20 text-accent-300"
-                                : skill.level === "advanced"
-                                  ? "bg-gray-600/30 text-gray-200"
-                                  : skill.level === "intermediate"
-                                    ? "bg-gray-700/30 text-gray-300"
-                                    : "bg-gray-800/30 text-gray-400"
-                            }`}
+                            className={`rounded-full px-2 py-1 text-sm ${getSkillLevelStyles(skill.level).bg} ${getSkillLevelStyles(skill.level).text}`}
                           >
-                            {skill.level}
+                            {getSkillLevelLabel(skill.level)}
                           </span>
                         </div>
 

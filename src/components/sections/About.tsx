@@ -49,11 +49,15 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Story */}
           <motion.div variants={itemVariants} className="space-y-8">
-            <GradientCard gradient="purple" className="p-8 md:p-10">
+            <GradientCard gradient="purple" className="">
               <h3 className="mb-6 text-2xl font-bold text-white">My Journey</h3>
               <p className="mb-8 text-lg leading-relaxed text-gray-300">
-                Graduated from the University of Kentucky in 2018 with dreams of
-                making websites, mobile apps, and video games, while learning
+                Born in South Africa, raised in Kentucky, Alabama, and Illinois,
+                I ended up back in Kentucky to study computer science.
+              </p>
+              <p className="mb-8 text-lg leading-relaxed text-gray-300">
+                I graduated from the University of Kentucky in 2018 with dreams
+                of making websites, mobile apps, and video games, while learning
                 the fundamentals of software development.
               </p>
               <p className="mb-8 text-lg leading-relaxed text-gray-300">

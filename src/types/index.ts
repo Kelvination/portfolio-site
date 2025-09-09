@@ -26,11 +26,13 @@ export interface Experience {
   technologies: string[];
 }
 
+import type { SkillLevelValue } from '../config/skillLevels';
+
 export interface Skill {
   id: string;
   name: string;
   category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
-  level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  level: SkillLevelValue;
 }
 
 export interface PersonalInfo {

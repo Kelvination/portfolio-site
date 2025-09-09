@@ -39,9 +39,4 @@ export const backgroundGradients = {
   `
 } as const;
 
-export const skillLevelGradients = {
-  beginner: 'from-gray-500 to-gray-400',
-  intermediate: 'from-gray-400 to-gray-300',
-  advanced: 'from-gray-300 to-gray-200',
-  expert: 'from-accent-400 to-accent-500'
-} as const;
+// Skill level gradients moved to config/skillLevels.ts
