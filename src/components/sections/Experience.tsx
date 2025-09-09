@@ -81,9 +81,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               className="mb-4"
             >
               <div className="pt-4">
-                <p className="leading-relaxed text-gray-300">
-                  {exp.detailedDescription}
-                </p>
+                <div className="leading-relaxed text-gray-300">
+                  {exp.detailedDescription
+                    .split("\n\n")
+                    .map((paragraph, index) => (
+                      <p key={index} className="mb-4 last:mb-0">
+                        {paragraph}
+                      </p>
+                    ))}
+                </div>
               </div>
             </motion.div>
           )}

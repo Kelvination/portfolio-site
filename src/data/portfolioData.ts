@@ -83,10 +83,18 @@ export const portfolioData: PortfolioData = {
       location: 'Remote / Lexington, KY',
       startDate: 'Oct 2022',
       description: 'Led development of the Hudl Fan mobile app from the ground up, as well as making significant contributions to microservice backends to support millions of users.',
-      detailedDescription: 'Add detailed description here about your specific accomplishments, projects worked on, impact made, and technical challenges overcome at Hudl.',
+      detailedDescription: 'I co-architected and built the Hudl Fan Mobile App from scratch using React Native - it now has over 1.6 million downloads on iOS and serves thousands of daily users. The biggest challenge wasn\'t the technical implementation, but navigating constantly changing stakeholder requirements and design pivots while keeping development moving forward. \n\nOn the backend side, I designed and built the entire push notification system that handles 20-40K monthly notifications. The interesting part was architecting a fan-out system similar to Twitter\'s approach - if a team with a million subscribers goes live, we needed to have the ability to deliver all those notifications within a minute so fans don\'t miss the action. That\'s where the pub/sub architecture really shines. \n\nI also became the team\'s go-to person for AI development tools. I\'ve been proactively staying ahead of the curve, testing everything from Devin.AI to OpenHands, Gemini CLI, Jules, Cursor, Claude Code etc., and then training my teammates on what actually works versus what\'s just hype. I relentlessly pushed for Hudl to set up Devin.AI\'s DeepWiki system to help us navigate our documentation more efficiently, which was one of the most impactful AI enhancements I\'ve seen. It has been really rewarding to help the team embrace these tools strategically rather than just jumping on every new trend.',
       logoUrl: '/hudl-fan-logo.png',
       technologies: [
         'React Native',
+        'React',
+        'Typescript',
+        'Node.js',
+        'DocDB',
+        'Docker',
+        'RabbitMQ',
+        'SOLID',
+        'C#',
         '.NET',
         'AWS',
         'Microservices'
@@ -101,12 +109,15 @@ export const portfolioData: PortfolioData = {
       startDate: 'Dec 2018',
       endDate: 'Oct 2022',
       description: 'Developed and maintained full stack applications for multi-million dollar e-commerce websites and mobile applications, working directly with stakeholders to ensure high-quality delivery',
-      detailedDescription: 'Add detailed description here about your specific projects, clients worked with, technical solutions implemented, and growth during your time at eLink Design.',
+      detailedDescription: 'I was the primary developer responsible for metalsdepot.com, which brings in millions of dollars annually. It\'s by no means a visually pleasing site (I had very little control over the design, I swear!), but it is incredibly effective at what it needs to do. It wasn\'t the cleanest codebase when I inherited it - think 10+ years of legacy PHP that had been built and rebuilt by different developers over time. But I spent most of my time enhancing the core business logic that actually mattered: the shipping calculator algorithms, checkout flow optimization, and internal tools for package size calculations. When you\'re dealing with metal products that can weigh hundreds of pounds and have complex shipping requirements, getting those calculations right is crucial for both customer experience and profit margins. \n\nI worked directly with the CEO on feature requests and improvements, which taught me a lot about translating business needs into technical solutions. The challenge was always figuring out how to add modern functionality to a legacy system without breaking everything that was already working. \n\nI also built several other web applications and mobile apps using Vue.js, Xamarin, or whichever technology was requested for the project. It was great experience in both maintaining existing systems and building new ones from scratch.',
       logoUrl: '/elink-logo.jpg',
       technologies: [
-        'Vue.js',
-        'LAMP',
-        'JQuery'
+        'jQuery',
+        'Doctrine',
+        'Linux',
+        'Apache',
+        'MySQL',
+        'PHP',
       ]
     }
   ],
