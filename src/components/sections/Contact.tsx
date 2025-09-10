@@ -118,7 +118,7 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
         <motion.div variants={itemVariants} className="mt-16 text-center">
           <div className="mb-8 h-px w-full bg-gradient-to-r from-transparent via-gray-600/30 to-transparent" />
           <p className="text-gray-400">
-            © 2024 {personalInfo.name}. Built with React, TypeScript, and lots
+            © 2025 {personalInfo.name}. Built with React, TypeScript, and lots
             of ☕
           </p>
         </motion.div>
