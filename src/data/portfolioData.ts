@@ -4,7 +4,7 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: 'Kelvin Newton',
     title: 'Software Engineer',
-    bio: 'Full-stack software engineer with 7+ years building applications that serve millions of users. Passionate about leveraging AI to create meaningful technology that solves real problems for real people.',
+    bio: 'Full-stack software engineer with 7+ years building applications that serve millions of users. Passionate about leveraging the latest and most effective tools to create meaningful technology that solves real problems for real people.',
     location: 'Georgetown, KY',
     email: 'kelvin.a.newton@gmail.com',
     github: 'https://github.com/Kelvination',
