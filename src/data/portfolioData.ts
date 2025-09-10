@@ -61,6 +61,22 @@ export const portfolioData: PortfolioData = {
       liveUrl: 'https://kelvination.github.io/lighting-helper'
     },
     {
+      id: '3.5',
+      title: 'Shader Playground',
+      description: 'A Real-Time GLSL Shader Editor for Creative Experimentation',
+      longDescription: 'I love working with shaders - there\'s something incredibly satisfying about writing code that directly manipulates pixels and creates visual effects in real-time. But the traditional shader development workflow can be frustrating: write some GLSL, compile, see if it works, repeat. I wanted to build a tool that would give me immediate visual feedback as I\'m coding, so I could experiment more freely and iterate faster.\n\nThis playground provides a live editor where you can write fragment shaders and see the results instantly. It includes a collection of starter examples, adjustable parameters with sliders, and the ability to switch between different 3D geometries to see how your shaders look on various surfaces. The goal was to remove as much friction as possible from the creative process.\n\nWhat makes this particularly useful is that it bridges the gap between learning shaders from tutorials and actually experimenting with your own ideas. You can start with a basic example and gradually modify it to understand how different techniques work, or just dive in and create something completely new without worrying about setting up a development environment.',
+      technologies: [
+        'React',
+        'Three.js',
+        'GLSL',
+        'WebGL',
+        'JavaScript'
+      ],
+      githubUrl: 'https://github.com/Kelvination/shader-playground',
+      featured: true,
+      liveUrl: 'https://kelvinnewton.com/projects/shader-playground/'
+    },
+    {
       id: '4',
       title: 'Muggy Lake',
       description: 'Ludum Dare 48: Darker and Darker',
