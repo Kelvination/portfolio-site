@@ -82,7 +82,7 @@ export function usePortfolioData(initialData: PortfolioData) {
       id: Date.now().toString(),
       name: 'New Skill',
       category: 'frontend',
-      level: 'beginner'
+      level: 1
     };
     
     setData(prev => ({
