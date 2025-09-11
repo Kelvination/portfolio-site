@@ -61,10 +61,10 @@ const ModernTheme: React.FC<ModernThemeProps> = ({ data }) => {
       {/* Content Sections */}
       <div className="relative z-10">
         <Hero personalInfo={personalInfo} />
+        <ExperienceSection experience={experience} />
         <About personalInfo={personalInfo} />
         <Projects projects={projects} />
         <Skills skills={skills} />
-        <ExperienceSection experience={experience} />
         <Contact personalInfo={personalInfo} />
       </div>
 

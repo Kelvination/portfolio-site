@@ -134,7 +134,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <img
             src={exp.logoUrl}
             alt={`${exp.company} logo`}
-            className="h-full w-full rounded-xl object-contain"
+            className="h-full w-full rounded-xl object-fill"
           />
         ) : (
           <Building className="h-8 w-8 text-gray-400" />

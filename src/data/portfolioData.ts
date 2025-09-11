@@ -124,7 +124,7 @@ export const portfolioData: PortfolioData = {
       location: 'Lexington, KY',
       startDate: 'Dec 2018',
       endDate: 'Oct 2022',
-      description: 'Developed and maintained full stack applications for multi-million dollar e-commerce websites and mobile applications, working directly with stakeholders to ensure high-quality delivery',
+      description: 'Developed and maintained full stack applications for multi-million dollar e-commerce websites and mobile applications, working directly with stakeholders to ensure high-quality delivery.',
       detailedDescription: 'I was the primary developer responsible for metalsdepot.com, which brings in millions of dollars annually. It\'s by no means a visually pleasing site (I had very little control over the design, I swear!), but it is incredibly effective at what it needs to do. It wasn\'t the cleanest codebase when I inherited it - think 10+ years of legacy PHP that had been built and rebuilt by different developers over time. But I spent most of my time enhancing the core business logic that actually mattered: the shipping calculator algorithms, checkout flow optimization, and internal tools for package size calculations. When you\'re dealing with metal products that can weigh hundreds of pounds and have complex shipping requirements, getting those calculations right is crucial for both customer experience and profit margins. \n\nI worked directly with the CEO on feature requests and improvements, which taught me a lot about translating business needs into technical solutions. The challenge was always figuring out how to add modern functionality to a legacy system without breaking everything that was already working. \n\nI also built several other web applications and mobile apps using Vue.js, Xamarin, or whichever technology was requested for the project. It was great experience in both maintaining existing systems and building new ones from scratch.',
       logoUrl: '/elink-logo.jpg',
       technologies: [
@@ -135,6 +135,17 @@ export const portfolioData: PortfolioData = {
         'MySQL',
         'PHP',
       ]
+    },
+    {
+      id: '3',
+      title: 'Computer Science, B.S.',
+      company: 'University of Kentucky',
+      location: 'Lexington, KY',
+      startDate: '2014',
+      endDate: '2018',
+      description: 'Graduated from the University of Kentucky with a Bachelor of Science in Computer Science, building my foundation in solving complex problems and building optimized software solutions.',
+      logoUrl: '/uk-logo.png',
+      technologies: ['Linux', 'Bash', 'C', 'C++', 'Python', 'SQL', 'HTML', 'CSS', 'JavaScript', 'Ruby']
     }
   ],
   skills: [
