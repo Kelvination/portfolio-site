@@ -73,7 +73,7 @@ export const portfolioData: PortfolioData = {
         'JavaScript'
       ],
       githubUrl: 'https://github.com/Kelvination/shader-playground',
-      featured: true,
+      featured: false,
       liveUrl: 'https://kelvinnewton.com/projects/shader-playground/'
     },
     {
