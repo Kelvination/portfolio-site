@@ -33,6 +33,20 @@ export const portfolioData: PortfolioData = {
       featured: true
     },
     {
+      id: '1.5',
+      title: 'Harmonical',
+      description: 'A Seeded Generative Music Engine for the Browser',
+      longDescription: 'I originally built this as the soundtrack system for a racing game I\'m working on. I wanted music that never loops but still sounds composed, so instead of shipping audio files, the game ships a tiny engine that writes and performs the music live in the browser. Everything comes from one seed number: the same seed always plays the exact same endless song, and a different seed gives you a completely new one.\n\nUnder the hood it\'s all Web Audio and music theory: a section grammar arranges the song (intro, groove, build, peak, breakdown, solo), melodies are composed from rhythm cells with chord tones on the strong beats, and every few minutes the whole song modulates into a related key. The engine also keeps a memory of what it has played, and that memory bends the probability of every decision it makes next, so a note the melody keeps leaning on might earn a harmony voice, or too much consonance builds up pressure to reach for color. Solos are committed up front as story arcs that build, breathe, and resolve.\n\nThe live demo is the development playground: a DAW-style piano roll that shows not just what the engine is playing but what it has already committed to playing next, plus a graph of the decision probabilities evolving in real time as the memory shifts them. Press play and watch it think.',
+      technologies: [
+        'Web Audio API',
+        'JavaScript',
+        'Vite'
+      ],
+      githubUrl: 'https://github.com/Kelvination/harmonical',
+      featured: true,
+      liveUrl: 'https://kelvination.github.io/harmonical'
+    },
+    {
       id: '2',
       title: 'Valueator',
       description: 'A Value-Study Tool for Artists',
